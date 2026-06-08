@@ -106,15 +106,15 @@ export default function Home() {
         <Card style={{ padding: 18 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 14 }}>
             <Icon name="leaf" size={16} color={C.lemon} />
-            <Text style={text.label}>Your impact</Text>
+            <Text style={text.label}>Responsible by default</Text>
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <StatBlock value={eco.litres.toLocaleString()} label="Litres saved" accent />
-            <StatBlock value={eco.washes} label="Washes" />
-            <StatBlock value={`${eco.co2}kg`} label="CO₂ avoided" />
+            <StatBlock value={eco.washes} label="Washes" accent />
+            <StatBlock value="0" label="Runoff" />
+            <StatBlock value="100%" label="Biodegradable" />
           </View>
           <Text style={{ marginTop: 14, paddingTop: 14, borderTopWidth: 1, borderTopColor: C.carbonBorder, fontFamily: 'Inter_300Light', fontSize: 13, color: C.mist, lineHeight: 21 }}>
-            Every wash saves up to <Text style={text.strong}>300 litres</Text>. No water. No runoff.
+            <Text style={text.strong}>Controlled water</Text>, captured so nothing reaches the storm drains. Low-impact products, every wash.
           </Text>
         </Card>
       </View>

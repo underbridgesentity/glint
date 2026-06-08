@@ -6,8 +6,8 @@
 
 -- ── Catalogue: one-off service tiers ───────────────────────────
 insert into service_tiers (id, name, price_cents, mins, description, includes, popular, sort) values
-  ('express', 'Express', 9900,  25, 'Exterior waterless wash. Wheels and glass.',
-    '["Waterless body wash","Wheel faces + tyres","All glass","Quick dry buff"]', false, 0),
+  ('express', 'Express', 9900,  25, 'Exterior wash. Wheels and glass.',
+    '["Exterior body wash","Wheel faces + tyres","All glass","Quick dry buff"]', false, 0),
   ('full', 'Full', 19900, 45, 'Interior and exterior. The everyday standard.',
     '["Everything in Express","Interior vacuum","Dash + console wipe","Door jambs","Mats shaken + cleaned"]', true, 1),
   ('premium', 'Premium', 29900, 75, 'Full detail. Paint protected, interior dressed.',
@@ -15,7 +15,7 @@ insert into service_tiers (id, name, price_cents, mins, description, includes, p
 
 -- ── Catalogue: subscription plans ──────────────────────────────
 insert into plans (id, name, price_cents, period, washes_label, description, includes, popular, sort) values
-  ('basic', 'Basic', 45000, 'mo', '4 washes / month', 'Exterior waterless wash, weekly.',
+  ('basic', 'Basic', 45000, 'mo', '4 washes / month', 'Exterior wash, weekly.',
     '["1 Express wash per week","Same wash days each week","Pause anytime","No keys needed"]', false, 0),
   ('premium', 'Premium', 75000, 'mo', '8 washes / month', 'Full interior + exterior, twice weekly.',
     '["2 Full washes per week","Monthly Premium detail","Priority morning slots","Free re-wash guarantee"]', true, 1);
@@ -116,7 +116,7 @@ begin
   -- 15-point QA checklist for the live wash
   insert into wash_checklist (wash_id, item, sort) values
     ('eeeeeeee-0000-0000-0000-000000000001', 'Pre-rinse inspection', 0),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'Waterless body wash — panels', 1),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'Body wash — panels', 1),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Wheel faces + tyres', 2),
     ('eeeeeeee-0000-0000-0000-000000000001', 'All glass — exterior', 3),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Door jambs', 4),

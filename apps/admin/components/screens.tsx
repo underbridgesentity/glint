@@ -17,6 +17,7 @@ const PLAN_PRICE: Record<string, number> = { Premium: 75000, Basic: 45000, 'One-
 /* ── LIVE OPS ─────────────────────────────────────────────────── */
 export function Ops({ d }: { d: PortalData }) {
   const k = d.kpis;
+  const crew = d.team.filter((t) => t.status === 'washing' || t.status === 'available').length;
   const [filter, setFilter] = useState<'all' | 'in_progress' | 'scheduled' | 'done'>('all');
   const board = filter === 'all' ? d.board : d.board.filter((b) => b.status === filter);
 
@@ -26,7 +27,7 @@ export function Ops({ d }: { d: PortalData }) {
         <Kpi label="Washes today" value={k.washesToday} sub={`of ${k.target} network target`} spark={[42, 51, 48, 60, 71, k.washesToday]} />
         <Kpi label="In progress" value={k.inProgress} sub={`across ${k.liveSites} live sites`} accent />
         <Kpi label="Completion" value={`${k.completion}%`} sub="of daily target" />
-        <Kpi label="Water saved today" value={`${(k.waterToday / 1000).toFixed(1)}k L`} sub="waterless · zero runoff" />
+        <Kpi label="Crew on shift" value={crew} sub="technicians working now" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) 320px', gap: 16, marginTop: 16 }} className="ops-grid">
@@ -129,7 +130,7 @@ export function Sites({ d }: { d: PortalData }) {
         <span className="g-label">New site footprint</span>
         <p className="g-body" style={{ fontSize: 13, marginTop: 12 }}>Each Glint station needs less than <span className="g-strong">4m²</span>:</p>
         <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {([['pin', '1–2 parking bays'], ['bolt', '1 power outlet'], ['lock', '1m × 1m equipment cage'], ['droplet', 'No water required']] as const).map(([ic, t]) => (
+          {([['pin', '1–2 parking bays'], ['bolt', '1 power outlet'], ['lock', '1m × 1m equipment cage'], ['droplet', 'No plumbing needed']] as const).map(([ic, t]) => (
             <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'var(--mist)' }}><Icon name={ic} size={16} color="var(--lemon)" />{t}</div>
           ))}
         </div>

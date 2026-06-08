@@ -33,9 +33,9 @@ export default function Marketing() {
       <div className="wrap">
         {/* HERO */}
         <header className="hero">
-          <div className="hero-eyebrow"><span className="g-label">Waterless car care · Sandton &amp; Midrand</span></div>
+          <div className="hero-eyebrow"><span className="g-label">Responsible car care · Sandton &amp; Midrand</span></div>
           <h1 className="g-display">Your car is clean.<br /><em>You weren&rsquo;t there.</em></h1>
-          <p className="hero-sub">Glint washes your car where it already sits — at the office, at the estate — while you work or sleep. No water. No keys handed over. No time lost.</p>
+          <p className="hero-sub">Glint cleans your car where it already sits — at the office, at the estate — while you work or sleep. Controlled water, zero runoff, no time lost.</p>
           <div className="hero-cta">
             <a className="g-btn g-btn--lemon" href={APP}>Book your first wash</a>
             <a className="g-btn g-btn--ghost" href="#how">See how it works</a>
@@ -54,9 +54,9 @@ export default function Marketing() {
 
       {/* STATS */}
       <div className="stats">
-        <div className="stat"><div className="n"><em>300L</em></div><div className="l">Water saved per wash. Every wash.</div></div>
+        <div className="stat"><div className="n"><em>0</em></div><div className="l">Runoff into storm drains. Biodegradable products.</div></div>
         <div className="stat"><div className="n">0</div><div className="l">Keys you hand over. Park as normal.</div></div>
-        <div className="stat"><div className="n">9–3</div><div className="l">Washed during your workday.</div></div>
+        <div className="stat"><div className="n">9–3</div><div className="l">Cleaned during your workday.</div></div>
         <div className="stat"><div className="n">4.9<em>★</em></div><div className="l">Average wash rating across sites.</div></div>
       </div>
 
@@ -103,7 +103,7 @@ export default function Marketing() {
             <div className="price">
               <div className="pname"><h3 className="g-h3">Basic</h3></div>
               <div className="amt tnum">R450<span>/mo</span></div>
-              <p className="g-meta">Exterior waterless wash, once a week.</p>
+              <p className="g-meta">Exterior wash, once a week.</p>
               <ul>
                 {['4 washes per month', 'Same wash day each week', 'No keys needed', 'Pause anytime'].map((t) => (
                   <li key={t}><Check />{t}</li>
@@ -147,8 +147,8 @@ export default function Marketing() {
             </div>
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14a6 6 0 0 1-1-1Z" /><path d="M5 19c3-3 6-5 9-6" /></svg></div>
-              <h4 className="g-h3">Genuinely waterless</h4>
-              <p className="g-body">Not a marketing angle — the only method we use. A professional-grade solution lifts dirt with no water and no runoff. Up to 300 litres saved on every single wash.</p>
+              <h4 className="g-h3">Responsible by design</h4>
+              <p className="g-body">Controlled water use, captured on site so nothing runs into the storm drains. Biodegradable, low-impact products on every wash — proper clean, lighter footprint.</p>
             </div>
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l2.6 5.6L20 9.4l-4 4 1 6-5-2.8L7 19.4l1-6-4-4 5.4-.8L12 3Z" /></svg></div>
@@ -170,7 +170,7 @@ export default function Marketing() {
             <div className="b2b-spec">
               <div className="row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg><div><b>1–2 parking bays</b> <span>· for equipment</span></div></div>
               <div className="row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" /></svg><div><b>1 power outlet</b> <span>· for vacuum charging</span></div></div>
-              <div className="row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" /></svg><div><b>No water supply</b> <span>· waterless model</span></div></div>
+              <div className="row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" /></svg><div><b>No plumbing needed</b> <span>· self-contained water</span></div></div>
               <div className="row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" /></svg><div><b>Under 4m² total</b> <span>· lockable cage + signage</span></div></div>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function Marketing() {
       <div className="wrap">
         <section className="cta-band">
           <span className="g-label" style={{ display: 'block', marginBottom: 28 }}>Get started</span>
-          <h2 className="g-display">No water.<br /><em>No waiting.</em><br />No excuses.</h2>
+          <h2 className="g-display">No queues.<br /><em>No waiting.</em><br />No excuses.</h2>
           <div className="store-row">
             <a className="store" href={APP}><svg width="22" height="22" viewBox="0 0 24 24" fill="#F8F8F8"><path d="M17.6 12.7c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.7-3.1.7-.6 0-1.7-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.2.7 1 1.4 2.1 2.4 2.1.9 0 1.3-.6 2.4-.6 1.1 0 1.4.6 2.4.6 1 0 1.6-1 2.3-2 .7-1.1 1-2.2 1-2.3-.1 0-1.9-.7-1.9-2.9Z" /><path d="M15.5 6.4c.5-.6.9-1.5.8-2.4-.8 0-1.7.5-2.3 1.2-.5.6-1 1.5-.8 2.3.9.1 1.8-.4 2.3-1.1Z" /></svg><div style={{ textAlign: 'left' }}><div className="st-sm">Download on the</div><div className="st-lg">App Store</div></div></a>
             <a className="store" href={APP}><svg width="22" height="22" viewBox="0 0 24 24" fill="#CDFF00"><path d="M4 3l11 9-11 9V3Z" /></svg><div style={{ textAlign: 'left' }}><div className="st-sm">Get it on</div><div className="st-lg">Google Play</div></div></a>
@@ -195,7 +195,7 @@ export default function Marketing() {
           <div className="foot-grid">
             <div style={{ maxWidth: 280 }}>
               <Logo />
-              <p className="g-body" style={{ fontSize: 14, marginTop: 16 }}>App-led waterless car care for South African estates and office parks.</p>
+              <p className="g-body" style={{ fontSize: 14, marginTop: 16 }}>App-led, responsible car care for South African estates and office parks.</p>
             </div>
             <div className="foot-links">
               <div className="foot-col">
@@ -219,7 +219,7 @@ export default function Marketing() {
           </div>
           <div className="g-divider" style={{ margin: '40px 0 24px' }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-            <span className="g-meta">© 2026 Glint. Waterless car care.</span>
+            <span className="g-meta">© 2026 Glint. Responsible car care.</span>
             <span className="g-meta">Sandton · Midrand · Fourways</span>
           </div>
         </div>

@@ -1,6 +1,6 @@
 # Glint
 
-App-led car wash for South African office parks and estates. Waterless wash, booked and tracked from your phone — "your car is done" with photo proof, no keys needed.
+App-led car wash for South African office parks and estates. Responsible, low-impact wash (controlled water, zero runoff, biodegradable products), booked and tracked from your phone — "your car is done" with photo proof, no keys needed.
 
 Built from the Claude Design handoff (`Glint` brand bible: Carbon Black + Electric Lemon + Inter, dark mode always) and the Operational Flow.
 

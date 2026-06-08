@@ -8,7 +8,6 @@ const SHIFT_TARGET = 12;
 export default function Today() {
   const insets = useSafeAreaInsets();
   const { done } = useQueue();
-  const litres = done.reduce((s, j) => s + (j.litres_saved ?? 0), 0);
   const remaining = Math.max(0, SHIFT_TARGET - done.length);
 
   return (
@@ -42,9 +41,9 @@ export default function Today() {
 
       <View style={{ paddingHorizontal: 20, paddingTop: 24 }}>
         <Highlight style={{ padding: 18 }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}><Icon name="leaf" size={16} color={C.lemon} /><Text style={text.label}>Water saved today</Text></View>
-          <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 30, color: C.lemon }}>{litres.toLocaleString()} L</Text>
-          <Text style={[text.body, { fontSize: 13, marginTop: 6 }]}>Waterless on every wash. No runoff, no hose.</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}><Icon name="leaf" size={16} color={C.lemon} /><Text style={text.label}>Responsible by default</Text></View>
+          <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 30, color: C.lemon }}>Zero runoff</Text>
+          <Text style={[text.body, { fontSize: 13, marginTop: 6 }]}>Controlled water, captured on site. Biodegradable products on every wash — nothing harmful down the drain.</Text>
         </Highlight>
       </View>
     </ScrollView>
