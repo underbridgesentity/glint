@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Glint Tech",
+    "slug": "glint-technician",
+    "version": "0.1.0",
+    "scheme": "glinttech",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "backgroundColor": "#0C0C0C",
+    "icon": "./assets/icon.png",
+    "splash": { "backgroundColor": "#0C0C0C", "resizeMode": "contain" },
+    "ios": { "supportsTablet": false, "bundleIdentifier": "co.za.glint.technician" },
+    "android": { "package": "co.za.glint.technician", "adaptiveIcon": { "backgroundColor": "#0C0C0C" } },
+    "web": { "bundler": "metro", "output": "single" },
+    "plugins": ["expo-router", "expo-font"],
+    "experiments": { "typedRoutes": true }
+  }
+}

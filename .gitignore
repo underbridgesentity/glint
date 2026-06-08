@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+dist/
+.next/
+.turbo/
+.expo/
+web-build/
+*.tsbuildinfo
+
+# env
+.env
+.env*.local
+!.env.example
+
+# local tooling config (may contain machine-specific commands / secrets)
+.claude/settings.local.json
+
+# supabase
+supabase/.branches/
+supabase/.temp/
+
+# native
+*.keystore
+ios/Pods/
+android/.gradle/
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+coverage/

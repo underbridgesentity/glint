@@ -1,0 +1,11 @@
+/* Glint brand design system (Carbon Black + Electric Lemon + Inter). */
+@import '@glint/design-tokens/css';
+
+html, body { height: 100%; }
+body { background: var(--carbon); color: var(--white); }
+input { font-family: var(--font); }
+
+/* Multi-column dashboard grids collapse to a single column on tablet/phone. */
+@media (max-width: 900px) {
+  .ops-grid { grid-template-columns: 1fr !important; }
+}
