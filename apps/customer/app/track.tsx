@@ -40,7 +40,7 @@ export default function Track() {
       {/* header */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 20 }}>
         <Pressable onPress={() => router.back()} style={{ marginLeft: -4 }}><Icon name="chevL" size={24} color={C.white} /></Pressable>
-        <Text style={[text.label, { color: C.steel }]}>Wash {wash.id.slice(0, 8)}</Text>
+        <Text style={[text.label, { color: C.steel }]}>Wash #{wash.id.slice(-4).toUpperCase()}</Text>
       </View>
 
       {/* status hero */}

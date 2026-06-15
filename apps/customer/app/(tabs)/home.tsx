@@ -33,6 +33,7 @@ export default function Home() {
 
   const { profile, cars, subscription, liveWash, recent, eco } = data;
   const first = profile?.first_name || 'there';
+  const today = new Date().toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long' });
 
   return (
     <ScrollView
@@ -55,7 +56,7 @@ export default function Home() {
 
       {/* Greeting */}
       <View style={{ paddingHorizontal: 20, paddingTop: 22, paddingBottom: 18 }}>
-        <Text style={text.meta}>Tuesday, 3 March · Katherine &amp; West</Text>
+        <Text style={text.meta}>{today} · Katherine &amp; West</Text>
         <Text style={[text.h1, { fontSize: 30, marginTop: 6 }]}>Good morning,{'\n'}{first}.</Text>
       </View>
 
@@ -95,8 +96,8 @@ export default function Home() {
               <CarGlyph tone={c.tone} size={58} />
               {c.is_primary && <Pill tone="neutral">Primary</Pill>}
             </View>
-            <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: C.white, marginTop: 12 }}>{c.make} {c.model}</Text>
-            <Text style={[text.meta, { marginTop: 2 }]}>{c.color} · {c.plate}</Text>
+            <Text numberOfLines={1} style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: C.white, marginTop: 12 }}>{c.make} {c.model}</Text>
+            <Text numberOfLines={1} style={[text.meta, { marginTop: 2 }]}>{c.color} · {c.plate}</Text>
           </Card>
         ))}
       </ScrollView>
@@ -133,10 +134,10 @@ function LiveHero({ wash, carTone, carName, onPress }: { wash: Wash; carTone?: s
   const done = wash.status === 'done';
   return (
     <View style={{ paddingHorizontal: 20 }}>
-      <Pressable onPress={onPress} style={{
+      <Pressable onPress={onPress} style={({ pressed }) => [{
         backgroundColor: done ? C.lemonDim : C.carbonMid, borderWidth: 1,
         borderColor: done ? C.lemonBorder : C.carbonBorder, borderRadius: 16, padding: 20,
-      }}>
+      }, pressed && { opacity: 0.92, transform: [{ scale: 0.99 }] }]}>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
           <Pill tone="lemon"><><Dot /><Text style={{ fontFamily: 'Inter_700Bold', fontSize: 11, letterSpacing: 0.5, textTransform: 'uppercase', color: C.lemon }}> {sc.tag}</Text></></Pill>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>

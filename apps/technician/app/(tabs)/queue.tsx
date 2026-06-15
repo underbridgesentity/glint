@@ -76,9 +76,9 @@ function JobCard({ job, active, onPress }: { job: Job; active?: boolean; onPress
     }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 13 }}>
         <View style={{ width: 56, height: 38, backgroundColor: C.carbon, borderRadius: 7, alignItems: 'center', justifyContent: 'center' }}><CarGlyph tone={job.car?.tone} size={46} /></View>
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15.5, color: C.white }}>{carName}</Text>
-          <Text style={text.meta}>{job.car?.color} · {cust}</Text>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Text numberOfLines={1} style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15.5, color: C.white }}>{carName}</Text>
+          <Text numberOfLines={1} style={text.meta}>{job.car?.color} · {cust}</Text>
         </View>
         <View style={{ alignItems: 'flex-end' }}>
           <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 14, color: C.white }}>{time}</Text>

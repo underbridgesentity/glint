@@ -43,9 +43,9 @@ export default function Profile() {
         {data?.cars.map((c) => (
           <Card key={c.id} style={{ padding: 16, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
             <CarGlyph tone={c.tone} size={54} />
-            <View style={{ flex: 1 }}>
-              <Text style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: C.white }}>{c.make} {c.model} {c.trim}</Text>
-              <Text style={[text.meta, { marginTop: 2 }]}>{c.color} · {c.plate}</Text>
+            <View style={{ flex: 1, minWidth: 0 }}>
+              <Text numberOfLines={1} style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15, color: C.white }}>{c.make} {c.model} {c.trim}</Text>
+              <Text numberOfLines={1} style={[text.meta, { marginTop: 2 }]}>{c.color} · {c.plate}</Text>
             </View>
             {c.is_primary && <Pill tone="neutral">Primary</Pill>}
           </Card>

@@ -33,3 +33,6 @@ android/.gradle/
 *.log
 npm-debug.log*
 coverage/
+
+# local preview config (machine-specific paths)
+.claude/launch.json

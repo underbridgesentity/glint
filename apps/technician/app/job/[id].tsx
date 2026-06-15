@@ -43,9 +43,9 @@ export default function JobScreen() {
       {/* header */}
       <View style={{ paddingTop: insets.top + 6, paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
         <Pressable onPress={() => router.back()} style={{ marginLeft: -4 }}><Icon name="chevL" size={24} color={C.white} /></Pressable>
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 15, color: C.white }}>{carName}</Text>
-          <Text style={text.meta}>{job.customer?.first_name ?? 'Customer'} · Bay {job.site?.bays} · {job.tier}</Text>
+        <View style={{ flex: 1, minWidth: 0 }}>
+          <Text numberOfLines={1} style={{ fontFamily: 'Inter_700Bold', fontSize: 15, color: C.white }}>{carName}</Text>
+          <Text numberOfLines={1} style={text.meta}>{job.customer?.first_name ?? 'Customer'} · Bay {job.site?.bays} · {job.tier}</Text>
         </View>
       </View>
 
