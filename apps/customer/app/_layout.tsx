@@ -18,15 +18,16 @@ function Gate() {
   useEffect(() => {
     if (loading) return;
     const seg0 = segments[0] as string | undefined;
-    const inApp = seg0 === '(tabs)' || seg0 === 'track';
-    if (!session && inApp) router.replace('/sign-in');
-    else if (session && seg0 === 'sign-in') router.replace('/(tabs)/home');
+    const protectedRoute = seg0 === '(tabs)' || seg0 === 'track' || seg0 === 'onboarding';
+    // sign-in handles its own post-auth routing (→ onboarding for new users, → home otherwise).
+    if (!session && protectedRoute) router.replace('/sign-in');
   }, [session, loading, segments]);
 
   return (
     <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: C.carbon }, animation: 'fade' }}>
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="track" options={{ animation: 'slide_from_right' }} />
+      <Stack.Screen name="onboarding" />
       <Stack.Screen name="sign-in" />
     </Stack>
   );

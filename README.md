@@ -19,7 +19,7 @@ Built from the Claude Design handoff (`Glint` brand bible: Carbon Black + Electr
 - **Monorepo:** pnpm workspaces + Turborepo.
 - **Shared packages:** `@glint/design-tokens` (the brand bible, defined once), `@glint/types` (DB + domain types).
 - **Booking:** WhatsApp-native (per product decision).
-- **Payments:** Yoco (SA-native) — subscription debit, once-off, fleet invoicing.
+- **Payments:** PayFast (SA-native) — subscription debit, once-off, fleet invoicing.
 
 ```
 glint/
@@ -81,6 +81,6 @@ pnpm admin             # Next.js ops portal      → http://localhost:3001
 ## Roadmap (next)
 
 1. ✅ All four surfaces + Supabase backend (schema, RLS, seed) + shared design system.
-2. Integrations: Yoco payments, WhatsApp Business booking, push notifications, Storage upload for real proof photos.
+2. Integrations: PayFast payments, WhatsApp Business booking, push notifications, Storage upload for real proof photos.
 3. Thread real pricing through seed + every surface (currently design placeholders).
 4. Publish: EAS build → App Store + Google Play; deploy web apps (Vercel).

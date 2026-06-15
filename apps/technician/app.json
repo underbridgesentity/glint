@@ -14,6 +14,6 @@
     "android": { "package": "co.za.glint.technician", "adaptiveIcon": { "backgroundColor": "#0C0C0C" } },
     "web": { "bundler": "metro", "output": "single" },
     "plugins": ["expo-router", "expo-font"],
-    "experiments": { "typedRoutes": true }
+    "experiments": { "typedRoutes": false }
   }
 }

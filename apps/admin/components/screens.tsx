@@ -354,7 +354,7 @@ export function Revenue({ d }: { d: PortalData }) {
         <div className="g-card" style={{ padding: 22 }}>
           <h3 className="g-h3" style={{ fontSize: 16, marginBottom: 18 }}>How money flows in</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {([['repeat', 'Subscription', 'Auto-debit / card-on-file, monthly'], ['wallet', 'Once-off', 'Yoco tap at site or WhatsApp link'], ['building', 'Fleet / corporate', 'Monthly invoice · 30-day terms'], ['shield', 'Developer', 'Monthly reconciliation + payment']] as const).map(([ic, t, s]) => (
+            {([['repeat', 'Subscription', 'Auto-debit / card-on-file, monthly'], ['wallet', 'Once-off', 'Card via PayFast at booking'], ['building', 'Fleet / corporate', 'Monthly invoice · 30-day terms'], ['shield', 'Developer', 'Monthly reconciliation + payment']] as const).map(([ic, t, s]) => (
               <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 13, padding: '12px 14px', borderRadius: 9, background: 'var(--carbon-raise)', border: '1px solid var(--carbon-border)' }}>
                 <div style={{ width: 34, height: 34, borderRadius: 8, background: 'var(--carbon-hi)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--lemon)', flexShrink: 0 }}><Icon name={ic} size={17} /></div>
                 <div style={{ flex: 1 }}><div style={{ fontSize: 13.5, fontWeight: 600 }}>{t}</div><div className="g-meta" style={{ fontSize: 11.5 }}>{s}</div></div>
