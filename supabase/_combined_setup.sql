@@ -384,6 +384,34 @@ $$;
 alter table washes alter column collection_code set default gen_handoff_code();
 alter table washes alter column drop_off_code   set default gen_handoff_code();
 -- ───────────────────────────────────────────────────────────────
+-- 0004 — Station capacity + operating window for slot booking
+-- Availability is derived: capacity − (active bookings overlapping a slot).
+-- ───────────────────────────────────────────────────────────────
+alter table sites add column if not exists capacity     int  not null default 2;   -- concurrent bays
+alter table sites add column if not exists slot_minutes int  not null default 30;
+alter table sites add column if not exists open_time    text not null default '08:00';
+alter table sites add column if not exists close_time   text not null default '16:00';
+-- ───────────────────────────────────────────────────────────────
+-- 0005 — Let customers read sites (for booking) + privacy-safe slot load
+-- ───────────────────────────────────────────────────────────────
+
+-- Sites are locations, not sensitive — any signed-in user may read them
+-- (needed for the booking slot picker: hours, capacity, name).
+create policy "sites readable by authenticated" on sites
+  for select to authenticated using (true);
+
+-- Slot availability without exposing other customers' bookings:
+-- returns only the booked times (no PII), bypassing RLS as definer.
+create or replace function site_day_load(p_site uuid, p_from timestamptz, p_to timestamptz)
+returns setof timestamptz
+language sql stable security definer set search_path = public as $$
+  select scheduled_for from washes
+  where site_id = p_site
+    and status in ('booked','scheduled','checked_in','in_progress')
+    and scheduled_for >= p_from and scheduled_for < p_to;
+$$;
+grant execute on function site_day_load(uuid, timestamptz, timestamptz) to authenticated;
+-- ───────────────────────────────────────────────────────────────
 -- Glint — seed data (dev). Mirrors the design's mock data so every
 -- surface shows real content the moment you run `supabase db reset`.
 -- Money is integer cents (ZAR): R450 -> 45000.

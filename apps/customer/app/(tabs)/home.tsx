@@ -9,11 +9,21 @@ import { Card, Pill, Dot, Button, Progress, StatBlock, Avatar, CarGlyph, C, text
 import { Icon } from '../../components/Icon';
 
 const STATUS_COPY: Record<string, { tag: string; line: string }> = {
-  scheduled: { tag: 'Scheduled', line: "Booked. We'll take it from here." },
-  arrived: { tag: 'Team arrived', line: 'Your car is being collected.' },
+  booked: { tag: 'Booked', line: 'Drop off at your slot.' },
+  scheduled: { tag: 'Booked', line: 'Drop off at your slot.' },
+  checked_in: { tag: 'Checked in', line: 'Wash starting.' },
   in_progress: { tag: 'In progress', line: 'Wash in progress.' },
-  done: { tag: 'Done', line: "Clean. You weren't there." },
+  ready: { tag: 'Ready', line: 'Ready to collect.' },
+  collected: { tag: 'Collected', line: 'Collected. See you next time.' },
+  done: { tag: 'Done', line: 'Clean. Proof attached.' },
 };
+
+function fmtSlot(iso: string | null) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  const day = d.toLocaleDateString('en-ZA', { weekday: 'short' });
+  return `${day} · ${d.toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' })}`;
+}
 
 export default function Home() {
   const router = useRouter();
@@ -131,17 +141,22 @@ export default function Home() {
 
 function LiveHero({ wash, carTone, carName, onPress }: { wash: Wash; carTone?: string; carName: string; onPress: () => void }) {
   const sc = STATUS_COPY[wash.status] ?? STATUS_COPY.in_progress;
-  const done = wash.status === 'done';
+  const isDone = wash.status === 'done' || wash.status === 'collected';
+  const isReady = wash.status === 'ready';
+  const isActive = wash.status === 'in_progress' || wash.status === 'checked_in';
+  const isBooked = wash.status === 'booked' || wash.status === 'scheduled';
+  const hot = isReady; // collection moment gets the lemon treatment
+  const rightLabel = isDone ? 'View proof' : isReady ? 'Show code' : isBooked ? 'Show pass' : 'Track live';
   return (
     <View style={{ paddingHorizontal: 20 }}>
       <Pressable onPress={onPress} style={({ pressed }) => [{
-        backgroundColor: done ? C.lemonDim : C.carbonMid, borderWidth: 1,
-        borderColor: done ? C.lemonBorder : C.carbonBorder, borderRadius: 16, padding: 20,
+        backgroundColor: hot || isDone ? C.lemonDim : C.carbonMid, borderWidth: 1,
+        borderColor: hot || isDone ? C.lemonBorder : C.carbonBorder, borderRadius: 16, padding: 20,
       }, pressed && { opacity: 0.92, transform: [{ scale: 0.99 }] }]}>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
           <Pill tone="lemon"><><Dot /><Text style={{ fontFamily: 'Inter_700Bold', fontSize: 11, letterSpacing: 0.5, textTransform: 'uppercase', color: C.lemon }}> {sc.tag}</Text></></Pill>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-            <Text style={{ color: C.steel, fontSize: 13, fontFamily: 'Inter_600SemiBold' }}>{done ? 'View proof' : 'Track live'}</Text>
+            <Text style={{ color: C.steel, fontSize: 13, fontFamily: 'Inter_600SemiBold' }}>{rightLabel}</Text>
             <Icon name="chevR" size={15} color={C.steel} />
           </View>
         </View>
@@ -154,13 +169,26 @@ function LiveHero({ wash, carTone, carName, onPress }: { wash: Wash; carTone?: s
             <Text style={[text.meta, { marginTop: 4 }]}>{carName} · {wash.tier} wash</Text>
           </View>
         </View>
-        {!done && (
+
+        {isActive && (
           <View style={{ marginTop: 18 }}>
             <Progress pct={wash.pct} />
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 }}>
               <Text style={text.meta}>Started {fmtTime(wash.started_at)}</Text>
               <Text style={text.meta}>Done ~{fmtTime(wash.eta_done)}</Text>
             </View>
+          </View>
+        )}
+        {isBooked && (
+          <View style={{ marginTop: 16, paddingTop: 14, borderTopWidth: 1, borderTopColor: C.carbonBorder, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={text.meta}>Drop-off · {fmtSlot(wash.scheduled_for)}</Text>
+            <Text style={[text.meta, { color: C.mist }]}>Code <Text style={{ color: C.white, fontFamily: 'Inter_700Bold' }}>{wash.drop_off_code}</Text></Text>
+          </View>
+        )}
+        {isReady && (
+          <View style={{ marginTop: 16, paddingTop: 14, borderTopWidth: 1, borderTopColor: C.lemonBorder }}>
+            <Text style={text.meta}>Show this code to collect</Text>
+            <Text style={{ fontFamily: 'Inter_800ExtraBold', fontSize: 34, letterSpacing: 6, color: C.lemon, marginTop: 2 }}>{wash.collection_code}</Text>
           </View>
         )}
       </Pressable>

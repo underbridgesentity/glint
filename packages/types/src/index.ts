@@ -43,6 +43,10 @@ export interface Site {
   target: number;
   status: SiteStatus;
   service_mode: ServiceMode;
+  capacity: number;
+  slot_minutes: number;
+  open_time: string;
+  close_time: string;
   lead_id: string | null;
 }
 
