@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600', '
 
 export const metadata: Metadata = {
   title: 'Glint — App-led responsible car care',
-  description: 'Glint cleans your car where it already sits — at the office, at the estate — while you work or sleep. Controlled water, zero runoff, no time lost.',
+  description: 'Drop your car at the Glint bay in your building, get back to your day, and collect it spotless — released only to you, by code, with photo proof.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
