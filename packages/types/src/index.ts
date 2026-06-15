@@ -4,13 +4,19 @@ export type UserRole = 'customer' | 'technician' | 'site_lead' | 'admin';
 export type SiteType = 'office_park' | 'residential';
 export type SiteStatus = 'live' | 'onboarding' | 'paused';
 export type WashStatus =
+  | 'booked'
   | 'scheduled'
   | 'en_route'
   | 'arrived'
+  | 'checked_in'
   | 'in_progress'
+  | 'ready'
   | 'done'
+  | 'collected'
   | 'cancelled';
 export type KeyMode = 'no_key' | 'lockbox';
+export type ServiceMode = 'station' | 'roving';
+export type ProofPhase = 'pre' | 'post' | 'progress';
 export type TechStatus = 'available' | 'washing' | 'break' | 'offline';
 export type AcademyStage = 'week_1' | 'week_2' | 'certified';
 export type InvoiceStatus = 'paid' | 'due' | 'overdue';
@@ -36,6 +42,7 @@ export interface Site {
   hours: string | null;
   target: number;
   status: SiteStatus;
+  service_mode: ServiceMode;
   lead_id: string | null;
 }
 
@@ -104,6 +111,13 @@ export interface Wash {
   price_cents: number;
   is_subscription: boolean;
   created_at: string;
+  // Secure drop-off handoff
+  drop_off_code: string | null;
+  collection_code: string | null;
+  bay_label: string | null;
+  checked_in_at: string | null;
+  ready_at: string | null;
+  collected_at: string | null;
 }
 
 export interface WashStep {
@@ -131,6 +145,8 @@ export interface WashProof {
   wash_id: string;
   label: string;
   storage_path: string;
+  phase: ProofPhase;
+  note: string | null;
 }
 
 export interface PaymentMethod {

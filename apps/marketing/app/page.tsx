@@ -34,8 +34,8 @@ export default function Marketing() {
         {/* HERO */}
         <header className="hero">
           <div className="hero-eyebrow"><span className="g-label">Responsible car care · Sandton &amp; Midrand</span></div>
-          <h1 className="g-display">Your car is clean.<br /><em>You weren&rsquo;t there.</em></h1>
-          <p className="hero-sub">Glint cleans your car where it already sits — at the office, at the estate — while you work or sleep. Controlled water, zero runoff, no time lost.</p>
+          <h1 className="g-display">Drop it. Clean.<br /><em>Collected by you.</em></h1>
+          <p className="hero-sub">Drop your car at the Glint bay in your building, get back to your day, and collect it spotless — released only to you, by code, with photo proof.</p>
           <div className="hero-cta">
             <a className="g-btn g-btn--lemon" href={APP}>Book your first wash</a>
             <a className="g-btn g-btn--ghost" href="#how">See how it works</a>
@@ -55,8 +55,8 @@ export default function Marketing() {
       {/* STATS */}
       <div className="stats">
         <div className="stat"><div className="n"><em>0</em></div><div className="l">Runoff into storm drains. Biodegradable products.</div></div>
-        <div className="stat"><div className="n">0</div><div className="l">Keys you hand over. Park as normal.</div></div>
-        <div className="stat"><div className="n">9–3</div><div className="l">Cleaned during your workday.</div></div>
+        <div className="stat"><div className="n">2-step</div><div className="l">Code-verified drop-off &amp; collection.</div></div>
+        <div className="stat"><div className="n">9–3</div><div className="l">Washed during your workday.</div></div>
         <div className="stat"><div className="n">4.9<em>★</em></div><div className="l">Average wash rating across sites.</div></div>
       </div>
 
@@ -65,26 +65,26 @@ export default function Marketing() {
         <section className="blk" id="how">
           <div className="blk-head">
             <span className="g-label">How it works</span>
-            <h2 className="g-h2" style={{ marginTop: 20 }}>Two ways to get clean.</h2>
-            <p>Whether your car spends the day at the office or the night at the estate — Glint fits the way you already park.</p>
+            <h2 className="g-h2" style={{ marginTop: 20 }}>Drop off. Get on with your day.</h2>
+            <p>A Glint bay sits right in your estate or office park. Two simple, code-verified steps — your car is never released to the wrong hands.</p>
           </div>
 
           <div className="paths">
             <div className="path">
-              <div className="path-top"><h3 className="g-h3">At your estate</h3><span className="g-pill g-pill--neutral">Subscription</span></div>
-              {[['1', 'Subscribe', 'Pick Basic or Premium in the app. Sign up in under a minute.'],
-                ['2', 'Choose your days', 'Tuesday and Friday? Done. Same days, every week.'],
-                ['3', 'Park as normal', 'Leave the car in your bay. No keys, no waiting.'],
-                ['4', 'Return to clean', '“Your car is done.” Proof attached. Billed monthly.']].map(([n, h, p]) => (
+              <div className="path-top"><h3 className="g-h3">The drop-off</h3><span className="g-pill g-pill--neutral">Step 1</span></div>
+              {[['1', 'Book a slot', 'Pick a time in the app. Takes under a minute.'],
+                ['2', 'Drive to the Glint bay', "It's right in your building's parking — a minute away."],
+                ['3', 'Check in by code', 'Show your drop-off code. We log a quick before-photo inspection.'],
+                ['4', 'Get on with your day', "Leave the car with us. We'll take it from here."]].map(([n, h, p]) => (
                 <div className="step" key={n}><span className="sn">{n}</span><div><h4>{h}</h4><p className="g-body">{p}</p></div></div>
               ))}
             </div>
             <div className="path">
-              <div className="path-top"><h3 className="g-h3">At the office</h3><span className="g-pill g-pill--neutral">Individual / Fleet</span></div>
-              {[['1', 'Arrive & park', 'Park at the office in the morning, like any other day.'],
-                ['2', "Drop a key — or don't", 'Use the Glint lockbox for interiors, or stay exterior-only.'],
-                ['3', 'We wash, 9 to 3', 'The team works during the day. Keys logged in and out.'],
-                ['4', 'Drive home clean', 'Key back in the lockbox. Notification sent. Zero time lost.']].map(([n, h, p]) => (
+              <div className="path-top"><h3 className="g-h3">The collection</h3><span className="g-pill g-pill--lemon">Step 2</span></div>
+              {[['1', '“It’s ready”', 'We notify you the moment your car is done.'],
+                ['2', 'Show your collection code', 'Your car is released only to whoever holds the code.'],
+                ['3', 'Drive away clean', 'Proof photos and an after-inspection are attached.'],
+                ['4', 'Rate the wash', 'Anything below three triggers a free re-wash, automatically.']].map(([n, h, p]) => (
                 <div className="step" key={n}><span className="sn">{n}</span><div><h4>{h}</h4><p className="g-body">{p}</p></div></div>
               ))}
             </div>
@@ -105,7 +105,7 @@ export default function Marketing() {
               <div className="amt tnum">R450<span>/mo</span></div>
               <p className="g-meta">Exterior wash, once a week.</p>
               <ul>
-                {['4 washes per month', 'Same wash day each week', 'No keys needed', 'Pause anytime'].map((t) => (
+                {['4 washes per month', 'Same wash day each week', 'Drop-and-go in minutes', 'Pause anytime'].map((t) => (
                   <li key={t}><Check />{t}</li>
                 ))}
               </ul>
@@ -136,14 +136,14 @@ export default function Marketing() {
         <section className="blk">
           <div className="blk-head">
             <span className="g-label">Why it&rsquo;s safe</span>
-            <h2 className="g-h2" style={{ marginTop: 20 }}>Trust an invisible service.</h2>
-            <p>You&rsquo;re handing over your car — sometimes your keys. We built the whole operation around earning that.</p>
+            <h2 className="g-h2" style={{ marginTop: 20 }}>Trust the handover.</h2>
+            <p>You&rsquo;re leaving your car with us. We built the whole operation around earning that — and around making sure only you get it back.</p>
           </div>
           <div className="trust">
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z" /><path d="M9 12l2 2 4-4" /></svg></div>
-              <h4 className="g-h3">Key security, logged</h4>
-              <p className="g-body">Combination lockbox on site. Every key tagged with a code — no personal info. Check-in and check-out logged digitally, under CCTV. Insured end to end.</p>
+              <h4 className="g-h3">Released only to you</h4>
+              <p className="g-body">Drop-off and collection are each verified by a one-time code and logged with before-and-after photos. Your car is never handed over without the code. Insured end to end.</p>
             </div>
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14a6 6 0 0 1-1-1Z" /><path d="M5 19c3-3 6-5 9-6" /></svg></div>

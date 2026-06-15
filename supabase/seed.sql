@@ -137,4 +137,9 @@ begin
     (thabo, 'dddddddd-0000-0000-0000-000000000001', '11111111-1111-1111-1111-111111111111', sipho, 'Full',    'done', 'no_key', now() - interval '4 days', now() - interval '4 days', 100, 5, 290, true,  0),
     (thabo, 'dddddddd-0000-0000-0000-000000000001', '11111111-1111-1111-1111-111111111111', sipho, 'Full',    'done', 'no_key', now() - interval '7 days', now() - interval '7 days', 100, 5, 285, true,  0),
     (thabo, 'dddddddd-0000-0000-0000-000000000002', '11111111-1111-1111-1111-111111111111', sipho, 'Express', 'done', 'lockbox', now() - interval '14 days', now() - interval '14 days', 100, 5, 240, false, 9900);
+
+  -- Secure handoff codes for the live demo wash (memorable for the demo)
+  update washes set drop_off_code = '1404', collection_code = '2580',
+    checked_in_at = now() - interval '8 minutes', bay_label = 'Bay 3'
+    where id = 'eeeeeeee-0000-0000-0000-000000000001';
 end $$;
