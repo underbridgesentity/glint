@@ -1,8 +1,9 @@
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Alert, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { fmtR } from '@glint/types';
 import { useHome } from '../../lib/queries';
 import { useAuth } from '../../lib/auth';
+import { supabase } from '../../lib/supabase';
 import { Card, Pill, Button, Avatar, CarGlyph, C, text } from '../../components/ui';
 import { Icon } from '../../components/Icon';
 
@@ -10,6 +11,19 @@ export default function Profile() {
   const insets = useSafeAreaInsets();
   const { data } = useHome();
   const { signOut } = useAuth();
+
+  const deleteAccount = () => {
+    const run = async () => { await supabase.rpc('delete_my_account'); await signOut(); };
+    // Alert is a no-op on web preview; confirm there via window.confirm.
+    if (typeof window !== 'undefined' && (window as any).confirm) {
+      if ((window as any).confirm('Delete your account? This permanently removes your profile, vehicles, and history.')) run();
+      return;
+    }
+    Alert.alert('Delete account', 'This permanently removes your profile, vehicles, and history.', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Delete', style: 'destructive', onPress: run },
+    ]);
+  };
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: C.carbon }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
@@ -54,6 +68,9 @@ export default function Profile() {
 
       <View style={{ paddingHorizontal: 20, paddingTop: 28 }}>
         <Button label="Sign out" variant="ghost" onPress={signOut} block icon={<Icon name="x" size={17} color={C.white} />} />
+        <Pressable onPress={deleteAccount} style={{ alignSelf: 'center', paddingVertical: 16 }}>
+          <Text style={{ fontFamily: 'Inter_500Medium', fontSize: 13, color: C.alert }}>Delete account</Text>
+        </Pressable>
       </View>
     </ScrollView>
   );

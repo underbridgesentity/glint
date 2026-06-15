@@ -214,6 +214,7 @@ export default function Marketing() {
                 <a href="#">About</a>
                 <a href="#">Careers</a>
                 <a href="#">Contact</a>
+                <a href="/privacy">Privacy</a>
               </div>
             </div>
           </div>

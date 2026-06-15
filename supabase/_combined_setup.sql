@@ -412,6 +412,26 @@ language sql stable security definer set search_path = public as $$
 $$;
 grant execute on function site_day_load(uuid, timestamptz, timestamptz) to authenticated;
 -- ───────────────────────────────────────────────────────────────
+-- 0006 — In-app account deletion (required by the App Store)
+-- Deletes the caller's auth user; FKs cascade to profile, cars, washes, etc.
+-- ───────────────────────────────────────────────────────────────
+create or replace function delete_my_account()
+returns void
+language plpgsql
+security definer
+set search_path = public, auth
+as $$
+declare uid uuid := auth.uid();
+begin
+  if uid is null then
+    raise exception 'not authenticated';
+  end if;
+  delete from auth.users where id = uid;  -- cascades through profiles → cars/washes/...
+end;
+$$;
+
+grant execute on function delete_my_account() to authenticated;
+-- ───────────────────────────────────────────────────────────────
 -- Glint — seed data (dev). Mirrors the design's mock data so every
 -- surface shows real content the moment you run `supabase db reset`.
 -- Money is integer cents (ZAR): R450 -> 45000.
