@@ -9,3 +9,26 @@ input { font-family: var(--font); }
 @media (max-width: 900px) {
   .ops-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ── Premium polish ──────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+::selection { background: var(--lemon); color: var(--carbon); }
+
+/* Cards get real depth on the dark UI: hairline top highlight + soft shadow */
+.g-card {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 10px 34px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+main .g-card:hover { border-color: #353535; }
+
+/* Keyboard focus ring (accessibility + polish) */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--lemon); outline-offset: 2px; border-radius: 6px;
+}
+/* Search input caret + focus glow */
+input { color: var(--white); caret-color: var(--lemon); }
+header input:focus { outline: none; }
+
+/* Sidebar nav: animated active accent bar */
+nav button { position: relative; }
+

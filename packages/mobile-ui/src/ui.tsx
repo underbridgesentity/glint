@@ -12,9 +12,13 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
   );
 }
 
-export function Highlight({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
+export function Highlight({ children, style, glow = true }: { children: ReactNode; style?: StyleProp<ViewStyle>; glow?: boolean }) {
   return (
-    <View style={[{ backgroundColor: C.lemonDim, borderWidth: 1, borderColor: C.lemonBorder, borderRadius: radius.lg }, style]}>
+    <View style={[
+      { backgroundColor: C.lemonDim, borderWidth: 1, borderColor: C.lemonBorder, borderRadius: radius.lg },
+      glow ? { shadowColor: C.lemon, shadowOpacity: 0.14, shadowRadius: 20, shadowOffset: { width: 0, height: 6 } } : null,
+      style,
+    ]}>
       {children}
     </View>
   );
@@ -54,6 +58,10 @@ export function Button({
     ghost: { bg: 'transparent', fg: C.white, bd: C.carbonBorder },
     solid: { bg: C.carbonRaise, fg: C.white, bd: C.carbonBorder },
   }[variant];
+  // Lemon CTAs get a soft glow on dark for a premium, tactile feel.
+  const glow = variant === 'lemon' && !disabled
+    ? { shadowColor: C.lemon, shadowOpacity: 0.4, shadowRadius: 16, shadowOffset: { width: 0, height: 5 }, elevation: 8 }
+    : null;
   return (
     <Pressable
       onPress={disabled ? undefined : onPress}
@@ -63,6 +71,8 @@ export function Button({
           paddingVertical: small ? 9 : 15, paddingHorizontal: small ? 14 : 22,
           width: block ? '100%' : undefined, opacity: disabled ? 0.5 : pressed ? 0.9 : 1,
           transform: [{ scale: pressed && !disabled ? 0.985 : 1 }] },
+        glow,
+        pressed && glow ? { shadowOpacity: 0.55 } : null,
         style,
       ]}
     >
