@@ -1,7 +1,7 @@
-const APP = '#'; // app-store / deep link (wire to store URLs at launch)
-// The customer app on the web (sign up, book, track, manage). Update when the
-// glint-app Vercel project is live, or point at a custom domain (app.glint.co.za).
-const WEB_APP = 'https://glint-app.vercel.app';
+// The customer app on the web (sign up, book, track, manage), served from this
+// same site at /app. Swap to store URLs for APP once the native apps are live.
+const WEB_APP = '/app';
+const APP = '/app';
 
 function Check() {
   return (
