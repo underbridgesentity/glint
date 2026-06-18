@@ -11,45 +11,10 @@ function Check() {
   );
 }
 
-// Glacier-silver, freshly-cleaned car with a gloss shine, lemon-rimmed wheels,
-// sparkle accents and a floor reflection. On-brand stand-in for photography.
+// Real hero photography: a freshly cleaned car in a dark drop-off bay.
+// Graded in-CSS to the carbon palette (.hv-photo) with a carbon vignette + lemon glow.
 function CarScene() {
-  const BODY = 'M6 44c-2 0-3-1.4-3-3.4 0-4.2 2.5-7.3 6.6-8.4l9-2.6 9.4-9c3-2.8 6.8-4.3 11-4.3h17c5.5 0 10.7 2.4 14.2 6.6l5.4 6.4 11.2 2.4c4.2.9 6.6 3.6 6.6 7.8 0 2.7-1.4 4.5-4.4 4.5H6Z';
-  const star = 'M0,-7 L1.7,-1.7 L7,0 L1.7,1.7 L0,7 L-1.7,1.7 L-7,0 L-1.7,-1.7 Z';
-  return (
-    <svg viewBox="0 0 160 150" width="100%" style={{ maxWidth: 540, display: 'block', margin: '0 auto' }} xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#EEF0F2" />
-          <stop offset="0.5" stopColor="#C2C6CC" />
-          <stop offset="1" stopColor="#878C95" />
-        </linearGradient>
-      </defs>
-      {/* floor reflection */}
-      <g transform="translate(30,150) scale(1,-1)" opacity="0.1">
-        <path d={BODY} fill="#C5C8CD" />
-      </g>
-      {/* car */}
-      <g transform="translate(30,20)">
-        <path d={BODY} fill="url(#gBody)" stroke="rgba(0,0,0,0.25)" strokeWidth="0.8" />
-        <path d="M33 19.5c-2.8.3-5.2 1.4-7.2 3.3l-6.3 6c-.7.7-.2 1.7.8 1.7H38c.8 0 1.4-.6 1.4-1.4V21c0-.9-.8-1.6-1.7-1.5l-4.7.0Z" fill="#11161A" />
-        <path d="M43 19.4h7.5c3.8 0 7.4 1.6 9.9 4.5l4.3 5c.6.7.1 1.6-.8 1.6H44.4c-.8 0-1.4-.6-1.4-1.4V20.8c0-.8.6-1.4 1.4-1.4Z" fill="#11161A" />
-        {/* gloss streak */}
-        <path d="M16 31 L41 31 L31 41 L6 41 Z" fill="#FFFFFF" opacity="0.18" />
-        {/* wheels with lemon rims */}
-        <circle cx="28" cy="44" r="9" fill="#0C0C0C" stroke="#CDFF00" strokeWidth="2.4" />
-        <circle cx="74" cy="44" r="9" fill="#0C0C0C" stroke="#CDFF00" strokeWidth="2.4" />
-        <circle cx="28" cy="44" r="3" fill="#CDFF00" />
-        <circle cx="74" cy="44" r="3" fill="#CDFF00" />
-      </g>
-      {/* sparkles */}
-      <g fill="#CDFF00">
-        <path transform="translate(126,30)" d={star} />
-        <path transform="translate(138,46) scale(0.55)" d={star} />
-        <path transform="translate(44,18) scale(0.5)" d={star} />
-      </g>
-    </svg>
-  );
+  return <img src="/hero-car.jpg" alt="A freshly cleaned car in a dark Glint drop-off bay" className="hv-photo" />;
 }
 
 function Logo({ size = 18 }: { size?: number }) {
