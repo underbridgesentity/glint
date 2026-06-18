@@ -35,7 +35,7 @@ export default function Marketing() {
         <header className="hero">
           <div className="hero-eyebrow"><span className="g-label">Responsible car care · Sandton &amp; Midrand</span></div>
           <h1 className="g-display">Drop it. Clean.<br /><em>Collected by you.</em></h1>
-          <p className="hero-sub">Drop your car at the Glint bay in your building, get back to your day, and collect it spotless — released only to you, by code, with photo proof.</p>
+          <p className="hero-sub">Drop your car at the Glint bay in your building, get back to your day, and collect it spotless - released only to you, by code, with photo proof.</p>
           <div className="hero-cta">
             <a className="g-btn g-btn--lemon" href={APP}>Book your first wash</a>
             <a className="g-btn g-btn--ghost" href="#how">See how it works</a>
@@ -45,7 +45,7 @@ export default function Marketing() {
             <div className="hv-spot" />
             <div className="hv-dot" />
             <div className="hv-label">
-              <span>Anchor image — to be shot</span>
+              <span>Anchor image - to be shot</span>
               <p>Dark underground parking bay. A single black sedan, glass-clean under a precise overhead light. High-gloss reflection on polished concrete. No people.</p>
             </div>
           </div>
@@ -66,14 +66,14 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">How it works</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Drop off. Get on with your day.</h2>
-            <p>A Glint bay sits right in your estate or office park. Two simple, code-verified steps — your car is never released to the wrong hands.</p>
+            <p>A Glint bay sits right in your estate or office park. Two simple, code-verified steps - your car is never released to the wrong hands.</p>
           </div>
 
           <div className="paths">
             <div className="path">
               <div className="path-top"><h3 className="g-h3">The drop-off</h3><span className="g-pill g-pill--neutral">Step 1</span></div>
               {[['1', 'Book a slot', 'Pick a time in the app. Takes under a minute.'],
-                ['2', 'Drive to the Glint bay', "It's right in your building's parking — a minute away."],
+                ['2', 'Drive to the Glint bay', "It's right in your building's parking - a minute away."],
                 ['3', 'Check in by code', 'Show your drop-off code. We log a quick before-photo inspection.'],
                 ['4', 'Get on with your day', "Leave the car with us. We'll take it from here."]].map(([n, h, p]) => (
                 <div className="step" key={n}><span className="sn">{n}</span><div><h4>{h}</h4><p className="g-body">{p}</p></div></div>
@@ -96,7 +96,7 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">Pricing</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Subscribe and forget it.</h2>
-            <p>One monthly price. Your car, handled. Cancel or pause anytime — no fees, no calls.</p>
+            <p>One monthly price. Your car, handled. Cancel or pause anytime - no fees, no calls.</p>
           </div>
 
           <div className="price-grid">
@@ -124,7 +124,7 @@ export default function Marketing() {
             </div>
           </div>
 
-          <p className="g-meta" style={{ margin: '34px 0 16px' }}>Or pay as you go — no subscription:</p>
+          <p className="g-meta" style={{ margin: '34px 0 16px' }}>Or pay as you go - no subscription:</p>
           <div className="oneoff">
             {[['Express', 'R99', 'Exterior · 25 min'], ['Full', 'R199', 'Interior + exterior · 45 min'], ['Premium', 'R299', 'Full detail · 75 min']].map(([n, p, d]) => (
               <div className="o" key={n}><div className="on">{n}</div><div className="op tnum">{p}</div><div className="od">{d}</div></div>
@@ -137,7 +137,7 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">Why it&rsquo;s safe</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Trust the handover.</h2>
-            <p>You&rsquo;re leaving your car with us. We built the whole operation around earning that — and around making sure only you get it back.</p>
+            <p>You&rsquo;re leaving your car with us. We built the whole operation around earning that - and around making sure only you get it back.</p>
           </div>
           <div className="trust">
             <div className="trust-card">
@@ -148,12 +148,12 @@ export default function Marketing() {
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14a6 6 0 0 1-1-1Z" /><path d="M5 19c3-3 6-5 9-6" /></svg></div>
               <h4 className="g-h3">Responsible by design</h4>
-              <p className="g-body">Controlled water use, captured on site so nothing runs into the storm drains. Biodegradable, low-impact products on every wash — proper clean, lighter footprint.</p>
+              <p className="g-body">Controlled water use, captured on site so nothing runs into the storm drains. Biodegradable, low-impact products on every wash - proper clean, lighter footprint.</p>
             </div>
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l2.6 5.6L20 9.4l-4 4 1 6-5-2.8L7 19.4l1-6-4-4 5.4-.8L12 3Z" /></svg></div>
               <h4 className="g-h3">Trained, then trusted</h4>
-              <p className="g-body">Every washer completes a two-week academy and works a 15-point checklist on your car. Rate every wash — anything below three triggers a free re-wash, automatically.</p>
+              <p className="g-body">Every washer completes a two-week academy and works a 15-point checklist on your car. Rate every wash - anything below three triggers a free re-wash, automatically.</p>
             </div>
           </div>
         </section>
@@ -164,7 +164,7 @@ export default function Marketing() {
             <div>
               <span className="g-label">For property managers</span>
               <h2 className="g-h2" style={{ marginTop: 18 }}>Bring Glint<br />to your building.</h2>
-              <p>A Glint station is an embedded micro-business — an amenity your residents and tenants notice, run by a trained team you never have to manage. It fits in under four square metres.</p>
+              <p>A Glint station is an embedded micro-business - an amenity your residents and tenants notice, run by a trained team you never have to manage. It fits in under four square metres.</p>
               <a className="g-btn g-btn--lemon" href="#" style={{ marginTop: 28 }}>Talk to our team</a>
             </div>
             <div className="b2b-spec">

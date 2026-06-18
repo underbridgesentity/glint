@@ -1,8 +1,8 @@
 -- ───────────────────────────────────────────────────────────────
--- 0005 — Let customers read sites (for booking) + privacy-safe slot load
+-- 0005 - Let customers read sites (for booking) + privacy-safe slot load
 -- ───────────────────────────────────────────────────────────────
 
--- Sites are locations, not sensitive — any signed-in user may read them
+-- Sites are locations, not sensitive - any signed-in user may read them
 -- (needed for the booking slot picker: hours, capacity, name).
 create policy "sites readable by authenticated" on sites
   for select to authenticated using (true);

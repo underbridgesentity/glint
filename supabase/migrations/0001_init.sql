@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- Glint — initial schema
+-- Glint - initial schema
 -- Grounded in the Operational Flow: residential + office-park journeys,
 -- sites as embedded micro-businesses, live washes with proof, key mgmt.
 -- Money stored as integer cents (ZAR).

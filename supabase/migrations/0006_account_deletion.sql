@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- 0006 — In-app account deletion (required by the App Store)
+-- 0006 - In-app account deletion (required by the App Store)
 -- Deletes the caller's auth user; FKs cascade to profile, cars, washes, etc.
 -- ───────────────────────────────────────────────────────────────
 create or replace function delete_my_account()

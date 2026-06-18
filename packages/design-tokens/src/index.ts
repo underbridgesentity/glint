@@ -1,5 +1,5 @@
 /**
- * Glint — Design Tokens
+ * Glint - Design Tokens
  * Extracted verbatim from the Glint Brand Bible v1.0.
  * Carbon Black foundation · Crisp White content · Electric Lemon signal
  * Inter only · Dark mode always · 8px cards / 100px pills
@@ -21,7 +21,7 @@ export const color = {
   mist: '#8C8C8C',
   white: '#F8F8F8',
 
-  // Signal — use sparingly
+  // Signal - use sparingly
   lemon: '#CDFF00',
   lemonHover: '#D9FF33',
   lemonDim: 'rgba(205, 255, 0, 0.12)',
@@ -54,7 +54,7 @@ export const font = {
   },
 } as const;
 
-/** Type scale — letterSpacing in em (web) / multiply by fontSize for RN. */
+/** Type scale - letterSpacing in em (web) / multiply by fontSize for RN. */
 export const type = {
   label: { size: 11, weight: '700', spacing: 0.14, upper: true },
   display: { weight: '800', spacing: -0.04, line: 1.0 },

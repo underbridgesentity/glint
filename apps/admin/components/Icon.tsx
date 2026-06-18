@@ -1,4 +1,4 @@
-// Web (SVG) icon set — same paths as the Glint design system.
+// Web (SVG) icon set - same paths as the Glint design system.
 import { CSSProperties } from 'react';
 
 const PATHS: Record<string, JSX.Element> = {

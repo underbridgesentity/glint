@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- 0003 — Demarcated drop-off station model + secure code handoff
+-- 0003 - Demarcated drop-off station model + secure code handoff
 -- New lifecycle: booked → checked_in → in_progress → ready → collected
 -- Non-breaking: old statuses kept; status moved enum→text+check so new
 -- states can be added without enum-in-transaction headaches.

@@ -70,7 +70,7 @@ function Group({ title, count, hot, children }: { title: string; count: number; 
 }
 
 function JobCard({ job, action, hot, onPress }: { job: Job; action: string; hot?: boolean; onPress: () => void }) {
-  const time = job.scheduled_for ? new Date(job.scheduled_for).toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' }) : '—';
+  const time = job.scheduled_for ? new Date(job.scheduled_for).toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' }) : '-';
   const carName = job.car ? `${job.car.make} ${job.car.model}` : 'Vehicle';
   const cust = job.customer?.first_name || job.customer?.full_name || 'Customer';
   return (

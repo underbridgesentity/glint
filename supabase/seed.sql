@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- Glint — seed data (dev). Mirrors the design's mock data so every
+-- Glint - seed data (dev). Mirrors the design's mock data so every
 -- surface shows real content the moment you run `supabase db reset`.
 -- Money is integer cents (ZAR): R450 -> 45000.
 -- ───────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ insert into sites (id, name, type, area, bays, hours, target, status) values
   ('22222222-2222-2222-2222-222222222222', 'Waterfall Corner', 'office_park', 'Midrand',    'P1 East',           '09:00 – 15:00', 32, 'live'),
   ('33333333-3333-3333-3333-333333333333', 'The Polofields',   'residential', 'Waterfall',  'Visitor 3-4',       '07:00 – 16:00', 40, 'live'),
   ('44444444-4444-4444-4444-444444444444', 'Melrose Arch',     'office_park', 'Melrose',    'Hong Kong Lvl 2',   '09:00 – 15:00', 24, 'live'),
-  ('55555555-5555-5555-5555-555555555555', 'Steyn City',       'residential', 'Fourways',   'Clubhouse',         '—',             36, 'onboarding');
+  ('55555555-5555-5555-5555-555555555555', 'Steyn City',       'residential', 'Fourways',   'Clubhouse',         '-',             36, 'onboarding');
 
 -- ── Demo auth users (DEV ONLY) ─────────────────────────────────
 -- Password for all demo accounts: "glint1234"
@@ -95,7 +95,7 @@ begin
   insert into invoices (customer_id, ref, label, amount_cents, status, issued_on) values
     (thabo, 'INV-2026-03', 'Premium subscription', 75000, 'paid', date '2026-03-01'),
     (thabo, 'INV-2026-02', 'Premium subscription', 75000, 'paid', date '2026-02-01'),
-    (thabo, 'INV-OFF-118', 'Express wash — VW Polo', 9900, 'paid', date '2026-02-18'),
+    (thabo, 'INV-OFF-118', 'Express wash - VW Polo', 9900, 'paid', date '2026-02-18'),
     (thabo, 'INV-2026-01', 'Premium subscription', 75000, 'paid', date '2026-01-01');
 
   -- Live wash in progress (the signature moment)
@@ -116,16 +116,16 @@ begin
   -- 15-point QA checklist for the live wash
   insert into wash_checklist (wash_id, item, sort) values
     ('eeeeeeee-0000-0000-0000-000000000001', 'Pre-rinse inspection', 0),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'Body wash — panels', 1),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'Body wash - panels', 1),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Wheel faces + tyres', 2),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'All glass — exterior', 3),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'All glass - exterior', 3),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Door jambs', 4),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Mirrors + handles', 5),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'Interior vacuum — front', 6),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'Interior vacuum — rear + boot', 7),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'Interior vacuum - front', 6),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'Interior vacuum - rear + boot', 7),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Dash + console wipe', 8),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Door cards + sills', 9),
-    ('eeeeeeee-0000-0000-0000-000000000001', 'Glass — interior', 10),
+    ('eeeeeeee-0000-0000-0000-000000000001', 'Glass - interior', 10),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Mats shaken + cleaned', 11),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Final dry buff', 12),
     ('eeeeeeee-0000-0000-0000-000000000001', 'Tyre dressing', 13),

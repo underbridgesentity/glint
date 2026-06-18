@@ -30,7 +30,7 @@ export default function Profile() {
       <View style={{ paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', gap: 15 }}>
         <Avatar name={me?.full_name ?? ''} size={62} lemon />
         <View>
-          <Text style={[text.h3, { fontSize: 20 }]}>{me?.full_name ?? '—'}</Text>
+          <Text style={[text.h3, { fontSize: 20 }]}>{me?.full_name ?? '-'}</Text>
           <Text style={text.meta}>Washer · GT-114</Text>
           <Text style={text.meta}>Katherine &amp; West</Text>
         </View>

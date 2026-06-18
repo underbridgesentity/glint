@@ -19,7 +19,7 @@ const STATUS_COPY: Record<string, { tag: string; line: string }> = {
 };
 
 function fmtSlot(iso: string | null) {
-  if (!iso) return '—';
+  if (!iso) return '-';
   const d = new Date(iso);
   const day = d.toLocaleDateString('en-ZA', { weekday: 'short' });
   return `${day} · ${d.toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' })}`;
@@ -229,7 +229,7 @@ function carName(cars: { id: string; make: string; model: string }[], w: Wash) {
   return c ? `${c.make} ${c.model}` : 'Your car';
 }
 function fmtTime(iso: string | null) {
-  if (!iso) return '—';
+  if (!iso) return '-';
   return new Date(iso).toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
 }
 function fmtDate(iso: string | null) {

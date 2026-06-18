@@ -1,5 +1,5 @@
 /* ───────────────────────────────────────────────────────────────
-   GLINT — Shared Design System
+   GLINT - Shared Design System
    Extracted verbatim from the Glint Brand Bible v1.0
    Carbon Black foundation · Crisp White content · Electric Lemon signal
    Inter only · Dark mode always · 8px cards / 100px pills
@@ -18,13 +18,13 @@
   --mist:  #8C8C8C;
   --white: #F8F8F8;
 
-  /* Signal — use sparingly */
+  /* Signal - use sparingly */
   --lemon:        #CDFF00;
   --lemon-dim:    rgba(205, 255, 0, 0.12);
   --lemon-border: rgba(205, 255, 0, 0.30);
   --lemon-glow:   rgba(205, 255, 0, 0.20);
 
-  /* Functional (kept inside the family — desaturated) */
+  /* Functional (kept inside the family - desaturated) */
   --ok:    #CDFF00;        /* success = lemon */
   --warn:  #F2C94C;        /* used only in admin data viz */
   --alert: #E8675A;        /* re-wash / escalation only */

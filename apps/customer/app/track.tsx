@@ -19,12 +19,12 @@ const ORDER = ['booked', 'scheduled', 'checked_in', 'in_progress', 'ready', 'col
 const rank = (s: string) => Math.max(0, ORDER.indexOf(s === 'scheduled' ? 'booked' : s === 'done' ? 'collected' : s));
 
 function fmtSlot(iso: string | null) {
-  if (!iso) return '—';
+  if (!iso) return '-';
   const d = new Date(iso);
   return `${d.toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'short' })} · ${d.toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' })}`;
 }
 
-/** Big light card holding the QR — needs a light background to scan. */
+/** Big light card holding the QR - needs a light background to scan. */
 function PassCode({ label, code, qrValue }: { label: string; code: string | null; qrValue: string }) {
   return (
     <Card style={{ padding: 22, alignItems: 'center', backgroundColor: C.lemonDim, borderColor: C.lemonBorder }}>
@@ -82,7 +82,7 @@ export default function Track() {
       {/* Drop-off pass */}
       {isBooked && (
         <View style={{ paddingHorizontal: 20, gap: 14, paddingTop: 8 }}>
-          <Text style={[text.body, { fontSize: 14.5 }]}>Drive to the Glint bay and show this at check-in. {wash.key_mode === 'lockbox' ? 'Hand your key to the attendant.' : 'No key needed — exterior only.'}</Text>
+          <Text style={[text.body, { fontSize: 14.5 }]}>Drive to the Glint bay and show this at check-in. {wash.key_mode === 'lockbox' ? 'Hand your key to the attendant.' : 'No key needed - exterior only.'}</Text>
           <PassCode label="Drop-off code" code={wash.drop_off_code} qrValue={`glint://wash/${wash.id}?drop=${wash.drop_off_code}`} />
           <Card style={{ padding: 16, gap: 12 }}>
             <Row icon="calendar" label="Slot" value={fmtSlot(wash.scheduled_for)} />
@@ -108,10 +108,10 @@ export default function Track() {
         </View>
       )}
 
-      {/* Ready — collection pass */}
+      {/* Ready - collection pass */}
       {isReady && (
         <View style={{ paddingHorizontal: 20, gap: 14, paddingTop: 8 }}>
-          <Text style={[text.body, { fontSize: 14.5 }]}>Your car is done. Show this code at the bay to collect — it's released only to you.</Text>
+          <Text style={[text.body, { fontSize: 14.5 }]}>Your car is done. Show this code at the bay to collect - it's released only to you.</Text>
           <PassCode label="Collection code" code={wash.collection_code} qrValue={`glint://wash/${wash.id}?collect=${wash.collection_code}`} />
           <ProofGrid />
           <Button label="Collected (demo)" onPress={() => advance('collected', { collected_at: new Date().toISOString() })} block />

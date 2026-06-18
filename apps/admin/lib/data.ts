@@ -58,7 +58,7 @@ export async function fetchPortal(): Promise<PortalData> {
 
   const team: TeamMember[] = (teamRes.data ?? []).map((t: any) => ({
     id: t.profile_id,
-    name: t.profile?.full_name ?? '—',
+    name: t.profile?.full_name ?? '-',
     role: t.profile?.role === 'site_lead' ? 'Site Lead' : 'Washer',
     site_id: t.site_id,
     status: t.status,
@@ -73,9 +73,9 @@ export async function fetchPortal(): Promise<PortalData> {
     const sub = p.subscriptions?.[0];
     return {
       id: p.id.slice(0, 8).toUpperCase(),
-      name: p.full_name ?? '—',
+      name: p.full_name ?? '-',
       plan: sub ? sub.plan_id.charAt(0).toUpperCase() + sub.plan_id.slice(1) : 'One-off',
-      site: sites.find((s) => s.id === p.site_id)?.name ?? '—',
+      site: sites.find((s) => s.id === p.site_id)?.name ?? '-',
       cars: p.cars?.length ?? 0,
       since: p.member_since ?? '',
       status: sub?.status === 'active' ? 'Active' : 'Active',

@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- Glint — Row Level Security
+-- Glint - Row Level Security
 -- Customers see only their own data. Technicians/site leads see their
 -- site's washes. Admins see everything. Catalogues are public-read.
 -- ───────────────────────────────────────────────────────────────

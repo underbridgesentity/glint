@@ -31,7 +31,7 @@ export default function Profile() {
       <View style={{ paddingHorizontal: 20, alignItems: 'center', gap: 12, paddingTop: 8 }}>
         <Avatar name={data?.profile?.full_name ?? ''} size={72} />
         <View style={{ alignItems: 'center' }}>
-          <Text style={[text.h2, { fontSize: 22 }]}>{data?.profile?.full_name ?? '—'}</Text>
+          <Text style={[text.h2, { fontSize: 22 }]}>{data?.profile?.full_name ?? '-'}</Text>
           <Text style={[text.meta, { marginTop: 2 }]}>{data?.profile?.phone} · {data?.profile?.member_since ? `Member since ${new Date(data.profile.member_since).toLocaleDateString('en-ZA', { month: 'short', year: 'numeric' })}` : ''}</Text>
         </View>
       </View>

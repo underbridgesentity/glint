@@ -50,9 +50,9 @@ export function Ops({ d }: { d: PortalData }) {
             const st = SB_STATUS[b.status] ?? SB_STATUS.scheduled;
             return (
               <div key={b.id} style={{ display: 'grid', gridTemplateColumns: '1.4fr 1.2fr 1fr 0.7fr 1.1fr', gap: 12, padding: '14px 20px', borderBottom: '1px solid var(--carbon-border)', alignItems: 'center' }}>
-                <div><div style={{ fontSize: 13.5, fontWeight: 600 }}>{b.customer?.full_name ?? '—'}</div><div className="g-meta">{b.car ? `${b.car.make} ${b.car.model}` : ''}</div></div>
+                <div><div style={{ fontSize: 13.5, fontWeight: 600 }}>{b.customer?.full_name ?? '-'}</div><div className="g-meta">{b.car ? `${b.car.make} ${b.car.model}` : ''}</div></div>
                 <div className="g-meta" style={{ fontSize: 12.5, color: 'var(--mist)' }}>{b.site?.name}</div>
-                <div className="g-meta" style={{ fontSize: 12.5, color: 'var(--mist)' }}>{b.technician?.full_name ?? '—'}</div>
+                <div className="g-meta" style={{ fontSize: 12.5, color: 'var(--mist)' }}>{b.technician?.full_name ?? '-'}</div>
                 <div style={{ fontSize: 12.5, fontWeight: 600 }}>{b.tier}</div>
                 <div>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 100, color: st.c, background: st.bg, border: '1px solid ' + st.bd }}>
@@ -253,7 +253,7 @@ export function Customers({ d }: { d: PortalData }) {
             <span style={{ fontSize: 12.5, fontWeight: 700, color: planColor(c.plan) }}>{c.plan}</span>
             <span className="g-meta" style={{ fontSize: 12.5 }}>{c.site}</span>
             <span className="tnum" style={{ fontSize: 13 }}>{c.cars}</span>
-            <span className="g-meta tnum" style={{ fontSize: 12.5 }}>{c.since ? new Date(c.since).toLocaleDateString('en-ZA', { month: 'short', year: '2-digit' }) : '—'}</span>
+            <span className="g-meta tnum" style={{ fontSize: 12.5 }}>{c.since ? new Date(c.since).toLocaleDateString('en-ZA', { month: 'short', year: '2-digit' }) : '-'}</span>
             <span style={{ fontSize: 11, fontWeight: 700, color: c.status === 'Active' ? 'var(--lemon)' : 'var(--steel)' }}>{c.status}</span>
           </div>
         ))}

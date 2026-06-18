@@ -1,5 +1,5 @@
 -- ───────────────────────────────────────────────────────────────
--- 0004 — Station capacity + operating window for slot booking
+-- 0004 - Station capacity + operating window for slot booking
 -- Availability is derived: capacity − (active bookings overlapping a slot).
 -- ───────────────────────────────────────────────────────────────
 alter table sites add column if not exists capacity     int  not null default 2;   -- concurrent bays

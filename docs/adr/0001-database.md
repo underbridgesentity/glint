@@ -1,4 +1,4 @@
-# ADR 0001 — Database & backend platform
+# ADR 0001 - Database & backend platform
 
 **Status:** Accepted · 2026-06-08
 
@@ -12,13 +12,13 @@ The question raised: **Supabase or AWS Cape Town (`af-south-1`)?**
 
 ## Key findings
 
-- **Supabase does NOT offer an `af-south-1` (Cape Town) region.** Verified 2026-06-08 —
+- **Supabase does NOT offer an `af-south-1` (Cape Town) region.** Verified 2026-06-08 -
   long-standing community requests exist but Supabase has not made a South African region
   available. So "Supabase in Cape Town" is not currently an option.
 - **POPIA does not mandate local data residency.** Cross-border transfer is lawful where
   the destination has comparable protection (EU/GDPR qualifies) or with the data subject's
   consent. So an EU-hosted managed database is compliant with proper handling.
-- **Postgres is portable.** Whatever we pick, the data layer moves with `pg_dump` — no
+- **Postgres is portable.** Whatever we pick, the data layer moves with `pg_dump` - no
   schema rewrite to migrate later.
 
 ## Options considered
@@ -32,7 +32,7 @@ The question raised: **Supabase or AWS Cape Town (`af-south-1`)?**
 ## Decision
 
 **Managed Supabase, provisioned in the nearest EU region** (eu-west-2 London /
-eu-west-1 Ireland / eu-central-1 Frankfurt — pick lowest measured ping).
+eu-west-1 Ireland / eu-central-1 Frankfurt - pick lowest measured ping).
 
 Chosen for time-to-market: Supabase collapses auth, realtime, storage, and row-level
 security into one managed service, and ~150ms latency is fine for a booking/ops app.
@@ -40,7 +40,7 @@ security into one managed service, and ~150ms latency is fine for a booking/ops 
 ## Consequences
 
 - Fast to build; one backend serves all four surfaces.
-- EU residency — acceptable under POPIA with user consent at signup.
+- EU residency - acceptable under POPIA with user consent at signup.
 - **Revisit when:** a customer/regulatory requirement demands SA residency, scale
   justifies dedicated infra, **or** Supabase ships `af-south-1`. Migration path is
   `pg_dump` → self-hosted Supabase or RDS in Cape Town.

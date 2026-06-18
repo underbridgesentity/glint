@@ -49,7 +49,7 @@ export function useHome() {
   return { data, loading, reload: load };
 }
 
-/** A single wash, kept fresh over Realtime — drives the handoff pass + live tracker. */
+/** A single wash, kept fresh over Realtime - drives the handoff pass + live tracker. */
 export function useWash(washId: string | undefined) {
   const [wash, setWash] = useState<Wash | null>(null);
 

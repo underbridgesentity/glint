@@ -115,7 +115,7 @@ footer.site { border-top: 1px solid var(--carbon-border); padding: 56px 0 40px; 
 .foot-col a:hover { color: var(--white); }
 
 /* ───────────────────────────────────────────────────────────────
-   Polish pass — refined motion, depth, and detail (brand intact)
+   Polish pass - refined motion, depth, and detail (brand intact)
    ─────────────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 ::selection { background: var(--lemon); color: var(--carbon); }
