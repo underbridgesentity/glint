@@ -43,7 +43,7 @@ export default function Today() {
         <Highlight style={{ padding: 18 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}><Icon name="leaf" size={16} color={C.lemon} /><Text style={text.label}>Responsible by default</Text></View>
           <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 30, color: C.lemon }}>Zero runoff</Text>
-          <Text style={[text.body, { fontSize: 13, marginTop: 6 }]}>Controlled water, captured on site. Biodegradable products on every wash - nothing harmful down the drain.</Text>
+          <Text style={[text.body, { fontSize: 13, marginTop: 6 }]}>Controlled water, captured on site. Biodegradable products on every wash. Nothing harmful down the drain.</Text>
         </Highlight>
       </View>
     </ScrollView>

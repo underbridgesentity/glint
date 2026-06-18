@@ -162,7 +162,7 @@ export default function Book() {
           options={[{ v: 'lockbox', l: 'Leave key (full)' }, { v: 'no_key', l: 'Keep key (exterior)' }]}
           value={keyMode} onChange={(v) => setKeyMode(v as 'lockbox' | 'no_key')} />
         <Text style={[text.meta, { paddingHorizontal: 20, marginTop: 8 }]}>
-          {keyMode === 'lockbox' ? 'Hand your key at the bay - code-verified, returned only to you.' : 'Exterior only - keep your key, no handover.'}
+          {keyMode === 'lockbox' ? 'Hand your key at the bay, code-verified, returned only to you.' : 'Exterior only. Keep your key, no handover.'}
         </Text>
 
         {/* when */}

@@ -2,6 +2,7 @@
 @import '@glint/design-tokens/css';
 
 body { background: var(--carbon); overflow-x: hidden; }
+a { text-decoration: none; }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
 @media (max-width: 760px) { .wrap { padding: 0 22px; } }
 

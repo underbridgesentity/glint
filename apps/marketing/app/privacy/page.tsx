@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Glint - Privacy Policy',
+  title: 'Glint Â· Privacy Policy',
   description: 'How Glint collects, uses, and protects your personal information.',
 };
 

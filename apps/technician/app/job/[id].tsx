@@ -76,7 +76,7 @@ export default function JobScreen() {
           <View>
             <Text style={text.label}>Step 2 · Before photos</Text>
             <Text style={[text.h1, { fontSize: 26, marginTop: 12 }]}>Log the car’s condition.</Text>
-            <Text style={[text.body, { fontSize: 14.5, marginTop: 10, marginBottom: 18 }]}>Two quick shots before you start - protects you and the customer.</Text>
+            <Text style={[text.body, { fontSize: 14.5, marginTop: 10, marginBottom: 18 }]}>Two quick shots before you start. Protects you and the customer.</Text>
             <PhotoGrid shots={PRE_SHOTS} taken={prePhotos} onSnap={snapPre} cols={2} />
           </View>
         )}
@@ -104,7 +104,7 @@ export default function JobScreen() {
           <View>
             <Text style={text.label}>Proof</Text>
             <Text style={[text.h1, { fontSize: 26, marginTop: 12 }]}>Capture the finish.</Text>
-            <Text style={[text.body, { fontSize: 14.5, marginTop: 10, marginBottom: 18 }]}>Four shots - the customer sees these the moment you mark it ready.</Text>
+            <Text style={[text.body, { fontSize: 14.5, marginTop: 10, marginBottom: 18 }]}>Four shots. The customer sees these the moment you mark it ready.</Text>
             <PhotoGrid shots={POST_SHOTS} taken={postPhotos} onSnap={snapPost} cols={2} />
           </View>
         )}

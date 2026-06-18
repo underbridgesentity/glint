@@ -1,9 +1,53 @@
-const APP = '#'; // customer app download / deep link (wire to store URLs at launch)
+const APP = '#'; // app-store / deep link (wire to store URLs at launch)
+// The customer app on the web (sign up, book, track, manage). Update when the
+// glint-app Vercel project is live, or point at a custom domain (app.glint.co.za).
+const WEB_APP = 'https://glint-app.vercel.app';
 
 function Check() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CDFF00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 12.5l5 5L20 6.5" />
+    </svg>
+  );
+}
+
+// Glacier-silver, freshly-cleaned car with a gloss shine, lemon-rimmed wheels,
+// sparkle accents and a floor reflection. On-brand stand-in for photography.
+function CarScene() {
+  const BODY = 'M6 44c-2 0-3-1.4-3-3.4 0-4.2 2.5-7.3 6.6-8.4l9-2.6 9.4-9c3-2.8 6.8-4.3 11-4.3h17c5.5 0 10.7 2.4 14.2 6.6l5.4 6.4 11.2 2.4c4.2.9 6.6 3.6 6.6 7.8 0 2.7-1.4 4.5-4.4 4.5H6Z';
+  const star = 'M0,-7 L1.7,-1.7 L7,0 L1.7,1.7 L0,7 L-1.7,1.7 L-7,0 L-1.7,-1.7 Z';
+  return (
+    <svg viewBox="0 0 160 150" width="100%" style={{ maxWidth: 540, display: 'block', margin: '0 auto' }} xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#EEF0F2" />
+          <stop offset="0.5" stopColor="#C2C6CC" />
+          <stop offset="1" stopColor="#878C95" />
+        </linearGradient>
+      </defs>
+      {/* floor reflection */}
+      <g transform="translate(30,150) scale(1,-1)" opacity="0.1">
+        <path d={BODY} fill="#C5C8CD" />
+      </g>
+      {/* car */}
+      <g transform="translate(30,20)">
+        <path d={BODY} fill="url(#gBody)" stroke="rgba(0,0,0,0.25)" strokeWidth="0.8" />
+        <path d="M33 19.5c-2.8.3-5.2 1.4-7.2 3.3l-6.3 6c-.7.7-.2 1.7.8 1.7H38c.8 0 1.4-.6 1.4-1.4V21c0-.9-.8-1.6-1.7-1.5l-4.7.0Z" fill="#11161A" />
+        <path d="M43 19.4h7.5c3.8 0 7.4 1.6 9.9 4.5l4.3 5c.6.7.1 1.6-.8 1.6H44.4c-.8 0-1.4-.6-1.4-1.4V20.8c0-.8.6-1.4 1.4-1.4Z" fill="#11161A" />
+        {/* gloss streak */}
+        <path d="M16 31 L41 31 L31 41 L6 41 Z" fill="#FFFFFF" opacity="0.18" />
+        {/* wheels with lemon rims */}
+        <circle cx="28" cy="44" r="9" fill="#0C0C0C" stroke="#CDFF00" strokeWidth="2.4" />
+        <circle cx="74" cy="44" r="9" fill="#0C0C0C" stroke="#CDFF00" strokeWidth="2.4" />
+        <circle cx="28" cy="44" r="3" fill="#CDFF00" />
+        <circle cx="74" cy="44" r="3" fill="#CDFF00" />
+      </g>
+      {/* sparkles */}
+      <g fill="#CDFF00">
+        <path transform="translate(126,30)" d={star} />
+        <path transform="translate(138,46) scale(0.55)" d={star} />
+        <path transform="translate(44,18) scale(0.5)" d={star} />
+      </g>
     </svg>
   );
 }
@@ -25,8 +69,9 @@ export default function Marketing() {
             <a href="#how">How it works</a>
             <a href="#pricing">Pricing</a>
             <a href="#estates">For estates</a>
+            <a href={WEB_APP}>Sign in</a>
           </div>
-          <a className="g-btn g-btn--lemon g-btn--sm" href={APP}>Get the app</a>
+          <a className="g-btn g-btn--lemon g-btn--sm" href={WEB_APP}>Create account</a>
         </div>
       </nav>
 
@@ -35,19 +80,15 @@ export default function Marketing() {
         <header className="hero">
           <div className="hero-eyebrow"><span className="g-label">Responsible car care · Sandton &amp; Midrand</span></div>
           <h1 className="g-display">Drop it. Clean.<br /><em>Collected by you.</em></h1>
-          <p className="hero-sub">Drop your car at the Glint bay in your building, get back to your day, and collect it spotless - released only to you, by code, with photo proof.</p>
+          <p className="hero-sub">Drop your car at the Glint bay in your building, get back to your day, and collect it spotless. Released only to you, by code, with photo proof.</p>
           <div className="hero-cta">
-            <a className="g-btn g-btn--lemon" href={APP}>Book your first wash</a>
-            <a className="g-btn g-btn--ghost" href="#how">See how it works</a>
+            <a className="g-btn g-btn--lemon" href={WEB_APP}>Book your first wash</a>
+            <a className="g-btn g-btn--ghost" href={APP}>Get the app</a>
           </div>
 
-          <div className="hero-visual">
+          <div className="hero-visual" style={{ alignItems: 'center', justifyContent: 'center' }}>
             <div className="hv-spot" />
-            <div className="hv-dot" />
-            <div className="hv-label">
-              <span>Anchor image - to be shot</span>
-              <p>Dark underground parking bay. A single black sedan, glass-clean under a precise overhead light. High-gloss reflection on polished concrete. No people.</p>
-            </div>
+            <CarScene />
           </div>
         </header>
       </div>
@@ -66,14 +107,14 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">How it works</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Drop off. Get on with your day.</h2>
-            <p>A Glint bay sits right in your estate or office park. Two simple, code-verified steps - your car is never released to the wrong hands.</p>
+            <p>A Glint bay sits right in your estate or office park. Two simple, code-verified steps. Your car is never released to the wrong hands.</p>
           </div>
 
           <div className="paths">
             <div className="path">
               <div className="path-top"><h3 className="g-h3">The drop-off</h3><span className="g-pill g-pill--neutral">Step 1</span></div>
               {[['1', 'Book a slot', 'Pick a time in the app. Takes under a minute.'],
-                ['2', 'Drive to the Glint bay', "It's right in your building's parking - a minute away."],
+                ['2', 'Drive to the Glint bay', "It's right in your building's parking, a minute away."],
                 ['3', 'Check in by code', 'Show your drop-off code. We log a quick before-photo inspection.'],
                 ['4', 'Get on with your day', "Leave the car with us. We'll take it from here."]].map(([n, h, p]) => (
                 <div className="step" key={n}><span className="sn">{n}</span><div><h4>{h}</h4><p className="g-body">{p}</p></div></div>
@@ -96,7 +137,7 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">Pricing</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Subscribe and forget it.</h2>
-            <p>One monthly price. Your car, handled. Cancel or pause anytime - no fees, no calls.</p>
+            <p>One monthly price. Your car, handled. Cancel or pause anytime. No fees, no calls.</p>
           </div>
 
           <div className="price-grid">
@@ -124,7 +165,7 @@ export default function Marketing() {
             </div>
           </div>
 
-          <p className="g-meta" style={{ margin: '34px 0 16px' }}>Or pay as you go - no subscription:</p>
+          <p className="g-meta" style={{ margin: '34px 0 16px' }}>Or pay as you go. No subscription:</p>
           <div className="oneoff">
             {[['Express', 'R99', 'Exterior · 25 min'], ['Full', 'R199', 'Interior + exterior · 45 min'], ['Premium', 'R299', 'Full detail · 75 min']].map(([n, p, d]) => (
               <div className="o" key={n}><div className="on">{n}</div><div className="op tnum">{p}</div><div className="od">{d}</div></div>
@@ -137,7 +178,7 @@ export default function Marketing() {
           <div className="blk-head">
             <span className="g-label">Why it&rsquo;s safe</span>
             <h2 className="g-h2" style={{ marginTop: 20 }}>Trust the handover.</h2>
-            <p>You&rsquo;re leaving your car with us. We built the whole operation around earning that - and around making sure only you get it back.</p>
+            <p>You&rsquo;re leaving your car with us. We built the whole operation around earning that, and around making sure only you get it back.</p>
           </div>
           <div className="trust">
             <div className="trust-card">
@@ -148,12 +189,12 @@ export default function Marketing() {
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14a6 6 0 0 1-1-1Z" /><path d="M5 19c3-3 6-5 9-6" /></svg></div>
               <h4 className="g-h3">Responsible by design</h4>
-              <p className="g-body">Controlled water use, captured on site so nothing runs into the storm drains. Biodegradable, low-impact products on every wash - proper clean, lighter footprint.</p>
+              <p className="g-body">Controlled water use, captured on site so nothing runs into the storm drains. Biodegradable, low-impact products on every wash. Proper clean, lighter footprint.</p>
             </div>
             <div className="trust-card">
               <div className="trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l2.6 5.6L20 9.4l-4 4 1 6-5-2.8L7 19.4l1-6-4-4 5.4-.8L12 3Z" /></svg></div>
               <h4 className="g-h3">Trained, then trusted</h4>
-              <p className="g-body">Every washer completes a two-week academy and works a 15-point checklist on your car. Rate every wash - anything below three triggers a free re-wash, automatically.</p>
+              <p className="g-body">Every washer completes a two-week academy and works a 15-point checklist on your car. Rate every wash. Anything below three triggers a free re-wash, automatically.</p>
             </div>
           </div>
         </section>
@@ -164,7 +205,7 @@ export default function Marketing() {
             <div>
               <span className="g-label">For property managers</span>
               <h2 className="g-h2" style={{ marginTop: 18 }}>Bring Glint<br />to your building.</h2>
-              <p>A Glint station is an embedded micro-business - an amenity your residents and tenants notice, run by a trained team you never have to manage. It fits in under four square metres.</p>
+              <p>A Glint station is an embedded micro-business, an amenity your residents and tenants notice, run by a trained team you never have to manage. It fits in under four square metres.</p>
               <a className="g-btn g-btn--lemon" href="#" style={{ marginTop: 28 }}>Talk to our team</a>
             </div>
             <div className="b2b-spec">
