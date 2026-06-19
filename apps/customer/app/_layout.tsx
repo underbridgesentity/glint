@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import {
   useFonts,
   Inter_300Light, Inter_400Regular, Inter_500Medium,
@@ -39,12 +39,23 @@ export default function RootLayout() {
     Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold,
   });
 
+  const { width } = useWindowDimensions();
+  const wide = width > 520; // desktop / wide web: center the app in a phone-width column
+  const APP_WIDTH = 460;
+
   if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: C.carbon }} />;
 
   return (
     <AuthProvider>
       <StatusBar style="light" />
-      <Gate />
+      <View style={{ flex: 1, backgroundColor: C.carbon, alignItems: 'center' }}>
+        <View style={{
+          flex: 1, width: '100%', maxWidth: wide ? APP_WIDTH : undefined,
+          borderLeftWidth: wide ? 1 : 0, borderRightWidth: wide ? 1 : 0, borderColor: C.carbonBorder,
+        }}>
+          <Gate />
+        </View>
+      </View>
     </AuthProvider>
   );
 }
