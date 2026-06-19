@@ -8,7 +8,8 @@ type Mode = 'phone' | 'email';
 
 export default function SignIn() {
   const router = useRouter();
-  const [mode, setMode] = useState<Mode>('phone');
+  // Default to Email until an SMS/WhatsApp provider is connected in Supabase.
+  const [mode, setMode] = useState<Mode>('email');
   const [phone, setPhone] = useState('+27 ');
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState('');
