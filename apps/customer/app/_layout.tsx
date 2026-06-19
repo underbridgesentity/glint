@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
+import { ThemeProvider, DarkTheme } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 import {
@@ -9,6 +10,13 @@ import {
 } from '@expo-google-fonts/inter';
 import { AuthProvider, useAuth } from '../lib/auth';
 import { color as C } from '../lib/theme';
+
+// Dark navigation theme so the navigator's own container background is carbon,
+// not the default light grey (which showed around the centered desktop column).
+const navTheme = {
+  ...DarkTheme,
+  colors: { ...DarkTheme.colors, background: C.carbon, card: C.carbon, border: C.carbonBorder },
+};
 
 function Gate() {
   const { session, loading } = useAuth();
@@ -44,7 +52,9 @@ export default function RootLayout() {
   return (
     <AuthProvider>
       <StatusBar style="light" />
-      <Gate />
+      <ThemeProvider value={navTheme}>
+        <Gate />
+      </ThemeProvider>
     </AuthProvider>
   );
 }
