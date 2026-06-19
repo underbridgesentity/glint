@@ -59,9 +59,10 @@ eas submit --profile production --platform android    # to Play Console
 - Camera usage strings + permissions declared (for proof photos).
 
 ## Notes
-- **Phone OTP** needs an SMS provider (Twilio/MessageBird) enabled in Supabase →
-  Auth before submission, or reviewers can't sign in. Provide a demo account or
-  enable email sign-in for review.
+- **Auth is email only** (sign in + create account, email/password). No SMS/Twilio.
+  Give reviewers the demo account (thabo.m@meridian.co.za / glint1234). For real
+  sign-ups, configure SMTP in Supabase → Auth so confirmation emails deliver
+  reliably (the built-in mailer is rate-limited).
 - Monorepo: EAS builds from the repo with the root `.npmrc` (`node-linker=hoisted`),
   which is required for Expo + pnpm workspaces.
 - OTA updates: `eas update --channel production` (channels are set in `eas.json`).
