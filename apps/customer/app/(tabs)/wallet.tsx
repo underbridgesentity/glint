@@ -27,7 +27,7 @@ export default function Wallet() {
   }, []);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: C.carbon }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ flex: 1, backgroundColor: C.carbon, width: '100%', maxWidth: 640, alignSelf: 'center' }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
       <View style={{ paddingHorizontal: 20 }}>
         <Text style={text.label}>Wallet</Text>
         <Text style={[text.h1, { fontSize: 30, marginTop: 8 }]}>Payments &amp;{'\n'}invoices.</Text>

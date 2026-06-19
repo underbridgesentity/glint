@@ -45,7 +45,7 @@ export default function Onboarding() {
   if (loading) return <View style={{ flex: 1, backgroundColor: C.carbon, alignItems: 'center', justifyContent: 'center' }}><ActivityIndicator color={C.lemon} /></View>;
 
   return (
-    <View style={{ flex: 1, backgroundColor: C.carbon }}>
+    <View style={{ flex: 1, backgroundColor: C.carbon, width: '100%', maxWidth: 560, alignSelf: 'center' }}>
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 24, paddingBottom: 120, paddingHorizontal: 24 }} showsVerticalScrollIndicator={false}>
         <Text style={text.label}>Welcome to Glint</Text>
         <Text style={[text.h1, { fontSize: 30, marginTop: 8 }]}>Let's set you up.</Text>

@@ -51,7 +51,7 @@ export default function SignIn() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: C.carbon }}>
-      <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 28, gap: 14 }}>
+      <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 28, gap: 14, width: '100%', maxWidth: 440, alignSelf: 'center' }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 9, marginBottom: 6 }}>
           <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: C.lemon }} />
           <Text style={{ fontFamily: 'Inter_700Bold', fontSize: 22, letterSpacing: -0.6, color: C.white }}>Glint</Text>

@@ -68,7 +68,7 @@ export default function Track() {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: C.carbon }} contentContainerStyle={{ paddingTop: insets.top + 6, paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ flex: 1, backgroundColor: C.carbon, width: '100%', maxWidth: 640, alignSelf: 'center' }} contentContainerStyle={{ paddingTop: insets.top + 6, paddingBottom: insets.bottom + 28 }} showsVerticalScrollIndicator={false}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, paddingHorizontal: 20 }}>
         <Pressable onPress={() => router.back()} style={{ marginLeft: -4 }}><Icon name="chevL" size={24} color={C.white} /></Pressable>
         <Text style={[text.label, { color: C.steel }]}>Wash #{wash.id.slice(-4).toUpperCase()} · {wash.bay_label ?? 'Bay TBD'}</Text>

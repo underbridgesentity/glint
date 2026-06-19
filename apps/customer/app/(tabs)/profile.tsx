@@ -26,7 +26,7 @@ export default function Profile() {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: C.carbon }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ flex: 1, backgroundColor: C.carbon, width: '100%', maxWidth: 640, alignSelf: 'center' }} contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 28 }} showsVerticalScrollIndicator={false}>
       {/* identity */}
       <View style={{ paddingHorizontal: 20, alignItems: 'center', gap: 12, paddingTop: 8 }}>
         <Avatar name={data?.profile?.full_name ?? ''} size={72} />

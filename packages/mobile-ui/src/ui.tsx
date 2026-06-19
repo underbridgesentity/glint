@@ -1,7 +1,15 @@
 import { ReactNode } from 'react';
-import { View, Text, Pressable, ViewStyle, StyleProp, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, ViewStyle, StyleProp, ActivityIndicator, useWindowDimensions } from 'react-native';
 import Svg, { Path, Circle } from 'react-native-svg';
 import { color as C, radius, text } from './theme';
+
+/* ── Web/desktop: center a screen's content in a comfortable column ──
+   On phones it's a passthrough; on wide web it caps width and centers. */
+export function WebCenter({ children, max = 620 }: { children: ReactNode; max?: number }) {
+  const { width } = useWindowDimensions();
+  if (width <= 760) return <>{children}</>;
+  return <View style={{ flex: 1, width: '100%', maxWidth: max, alignSelf: 'center' }}>{children}</View>;
+}
 
 /* ── Card / surfaces ─────────────────────────────────────────── */
 export function Card({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {

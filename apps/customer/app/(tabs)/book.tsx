@@ -88,7 +88,7 @@ export default function Book() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: C.carbon }}>
+    <View style={{ flex: 1, backgroundColor: C.carbon, width: '100%', maxWidth: 640, alignSelf: 'center' }}>
       <ScrollView contentContainerStyle={{ paddingTop: insets.top + 16, paddingBottom: 120 }} showsVerticalScrollIndicator={false}>
         <View style={{ paddingHorizontal: 20 }}>
           <Text style={text.label}>Book a wash</Text>
