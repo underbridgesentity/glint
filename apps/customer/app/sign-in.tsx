@@ -17,7 +17,11 @@ export default function SignIn() {
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const e164 = phone.replace(/[^\d+]/g, '');
+  // Normalise any SA input to E.164: strip spaces, country code, and the
+  // leading 0, then re-prefix +27.  "+27 060 349 8403" / "060 349 8403" → "+27603498403"
+  const localDigits = phone.replace(/\D/g, '').replace(/^27/, '').replace(/^0+/, '');
+  const e164 = '+27' + localDigits;
+  const phoneValid = localDigits.length === 9;
 
   const postAuth = async () => {
     const { data } = await supabase.auth.getUser();
@@ -32,8 +36,11 @@ export default function SignIn() {
     setBusy(true); setErr(null);
     const { error } = await supabase.auth.signInWithOtp({ phone: e164 });
     setBusy(false);
-    if (error) setErr(error.message);
-    else setOtpSent(true);
+    if (error) {
+      // SMS isn't wired up yet on the backend — point people at email meanwhile.
+      const provider = /provider|not enabled|unsupported/i.test(error.message);
+      setErr(provider ? 'SMS sign-in is not available yet. Use Email to continue.' : error.message);
+    } else setOtpSent(true);
   };
   const verify = async () => {
     setBusy(true); setErr(null);
@@ -79,13 +86,13 @@ export default function SignIn() {
         {mode === 'phone' && !otpSent && (
           <>
             <TextInput style={input} value={phone} onChangeText={setPhone} placeholder="+27 82 123 4567" placeholderTextColor={C.steel} keyboardType="phone-pad" />
-            <Button label="Send code" onPress={sendCode} loading={busy} block disabled={e164.length < 11} />
+            <Button label="Send code" onPress={sendCode} loading={busy} block disabled={!phoneValid} />
             <Text style={[text.meta, { textAlign: 'center' }]}>We'll text you a one-time code.</Text>
           </>
         )}
         {mode === 'phone' && otpSent && (
           <>
-            <Text style={[text.meta, { marginTop: -4 }]}>Code sent to {phone.trim()}</Text>
+            <Text style={[text.meta, { marginTop: -4 }]}>Code sent to {e164}</Text>
             <TextInput style={[input, { fontSize: 26, fontFamily: 'Inter_700Bold', letterSpacing: 8, textAlign: 'center' }]} value={otp} onChangeText={setOtp} placeholder="000000" placeholderTextColor={C.steel} keyboardType="number-pad" maxLength={6} />
             <Button label="Verify & continue" onPress={verify} loading={busy} block disabled={otp.length < 6} />
             <Pressable onPress={() => setOtpSent(false)}><Text style={[text.meta, { textAlign: 'center' }]}>Change number</Text></Pressable>
