@@ -74,6 +74,8 @@ export default function TabsLayout() {
         <Tabs
           screenOptions={{
             headerShown: false,
+            // Keep the scene carbon so the area around the centered column isn't pale.
+            sceneStyle: { backgroundColor: C.carbon },
             tabBarActiveTintColor: C.lemon,
             tabBarInactiveTintColor: C.steel,
             // On wide web the sidebar above is the nav; hide the bottom bar.
