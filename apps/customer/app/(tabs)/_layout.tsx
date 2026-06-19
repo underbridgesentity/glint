@@ -1,6 +1,22 @@
+import { useEffect, useState } from 'react';
 import { Tabs, useRouter, useSegments } from 'expo-router';
-import { useWindowDimensions, View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { Icon, IconName, color as C } from '@glint/mobile-ui';
+
+/* Read the real viewport width straight from the DOM. react-native-web's
+   useWindowDimensions returns a stale width in the static web export, which
+   left the desktop sidebar from ever showing; window.innerWidth is accurate. */
+function useViewportWidth() {
+  const [w, setW] = useState(() => (typeof window !== 'undefined' ? window.innerWidth : 0));
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const onResize = () => setW(window.innerWidth);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return w;
+}
 
 const TABS: { name: string; label: string; icon: IconName }[] = [
   { name: 'home', label: 'Home', icon: 'home' },
@@ -46,7 +62,7 @@ function Sidebar({ active }: { active: string }) {
 }
 
 export default function TabsLayout() {
-  const { width } = useWindowDimensions();
+  const width = useViewportWidth();
   const wide = width > 760;
   const segments = useSegments() as string[];
   const active = segments[1] ?? 'home';
