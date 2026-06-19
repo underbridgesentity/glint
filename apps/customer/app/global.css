@@ -1,0 +1,13 @@
+/* Web only. React Navigation paints its container with the default light
+   background (#f2f2f2), which showed as a grey band around the centered
+   desktop content column. Keep every surface carbon. */
+html,
+body,
+#root {
+  background-color: #0c0c0c;
+}
+
+/* Override the navigator's inline light background wherever it appears. */
+[style*="rgb(242, 242, 242)"] {
+  background-color: #0c0c0c !important;
+}
